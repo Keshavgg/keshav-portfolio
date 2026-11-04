@@ -9,7 +9,7 @@ export const projects: Project[] = [
     category: 'AI / ML Systems',
     tier: 'Working Prototype',
     featured: true,
-    featuredRank: 1,
+    featuredRank: 2,
     highlightMetric: '5–15% Freight Overcharge Detection',
     summary: 'A document intelligence platform that reads multi-page transportation contracts and freight invoice PDFs locally, executes deterministic Python audit rules for rate caps, lane deviations, and kilometer tolerances, and provides constrained second-pass LLM advisory checks.',
     problem: 'Enterprise shippers and 3PL logistics networks manage thousands of multi-page freight bills monthly from distributed carrier fleets. Up to 15% of annual freight spend is lost to unauthorized fuel surcharges, mismatched origin-destination lanes, inflated billable distances, and duplicate trip charges. Manual auditing against complex contract rate sheets is painstakingly slow, while uploading sensitive corporate shipping data to generic cloud LLMs violates enterprise privacy boundaries.',
@@ -89,8 +89,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Codebase inspected in local repository (/Users/keshavjindal/Desktop/FraudCheckerMVP); FITT pitch deck prepared.'
+      statusNote: 'Functional prototype evaluated with synthetic logistics carriers; business & technical pitch prepared for FITT incubation (IIT Delhi).'
     },
     tags: ['Python', 'FastAPI', 'Document AI', 'RapidOCR', 'SQLite', 'React', 'Freight Tech']
   },
@@ -103,7 +102,7 @@ export const projects: Project[] = [
     category: 'Full-Stack',
     tier: 'Working Prototype',
     featured: true,
-    featuredRank: 2,
+    featuredRank: 3,
     highlightMetric: '<10ms SLA In-Memory Hybrid RAG',
     summary: 'An investor-grade travel operating system unifying multi-modal bookings (flights, stays, live events, fast-track visas) with an in-memory Hybrid RAG engine (BM25 + TF-IDF) and a multi-turn conversational AI copilot.',
     problem: 'Modern travel planning is fragmented across 5+ disparate platforms for flights, hotels, visa documentation, city events, and group cost splitting. Legacy OTAs (MakeMyTrip, Booking.com) offer rigid, transactional filter trees without conversational intelligence, while visa services (Atlys) are isolated from travel itineraries.',
@@ -197,7 +196,7 @@ export const projects: Project[] = [
     category: 'AI / ML Systems',
     tier: 'Completed Project',
     featured: true,
-    featuredRank: 3,
+    featuredRank: 6,
     highlightMetric: '4 Specialized Agents · Zero Hallucinated Claims',
     summary: 'An autonomous multi-agent research pipeline orchestrating Search, Reader, Writer, and Critic agents to plan, scrape, synthesize, and verify comprehensive technical reports with strict citation provenance.',
     problem: 'Single-prompt LLM interactions routinely generate superficial summaries, hallucinatory citations, and stale information when researching complex technical subjects. A single agent lacks the separation of concerns necessary to verify facts independently.',
@@ -283,7 +282,7 @@ export const projects: Project[] = [
     category: 'AI / ML Systems',
     tier: 'Completed Project',
     featured: true,
-    featuredRank: 4,
+    featuredRank: 5,
     highlightMetric: 'Zero Cloud GPU Costs · Sub-2s Scene Gen',
     summary: 'A local-first generative AI media pipeline compiling scripts into 1080x1920 Instagram Reels and YouTube Shorts on Apple Silicon using SDXL-Turbo, Kokoro/macOS TTS, and dynamic FFmpeg pan/zoom motion, complemented by a RAG transcript assistant.',
     problem: 'Short-form educational video production requires expensive cloud API subscriptions (ElevenLabs, Midjourney, RunWay), hours of manual editing timeline arrangement, and tedious subtitle synchronization.',
@@ -358,7 +357,7 @@ export const projects: Project[] = [
     },
     links: {
       github: 'https://github.com/Keshavgg/gen-ai1',
-      statusNote: 'Codebase located in local scratch/facts-video-maker and GitHub repo gen-ai1.'
+      statusNote: 'Open-source repository (gen-ai1); end-to-end automated video rendering pipeline.'
     },
     tags: ['Python', 'SDXL-Turbo', 'PyTorch', 'FFmpeg', 'RAG', 'Gradio', 'Whisper']
   },
@@ -370,8 +369,7 @@ export const projects: Project[] = [
     subtitle: 'Bespoke Fitness Platform with Free Trial Booking Funnel & Client-Side Admissions CRM',
     category: 'Full-Stack',
     tier: 'Completed Project',
-    featured: true,
-    featuredRank: 5,
+    featured: false,
     highlightMetric: 'Editorial Brutalist Design · Complete /admin CRM',
     summary: 'An agency-grade digital platform engineered for an elite athletic conditioning facility, featuring an interactive membership comparison matrix, trainer consult routing, and a real-time admissions CRM console.',
     problem: 'High-end athletic performance clubs suffer from cookie-cutter WordPress themes with sluggish load times, clunky booking funnels, and no lightweight way for admissions staff to manage inbound trial leads without costly SaaS subscriptions.',
@@ -432,8 +430,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Inspected in local scratch/forge-athletics directory; production build verified.'
+      statusNote: 'Production-ready responsive web platform built with React, Vite, and Tailwind CSS.'
     },
     tags: ['React', 'Vite', 'Tailwind CSS', 'Admin CRM', 'Editorial UI', 'Fitness Tech']
   },
@@ -445,8 +442,7 @@ export const projects: Project[] = [
     subtitle: 'Zero-SMS Authentication, Role-Scoped Permissions & Local Commerce Discovery Engine',
     category: 'Full-Stack',
     tier: 'Working Prototype',
-    featured: true,
-    featuredRank: 6,
+    featured: false,
     highlightMetric: 'Zero SMS OTP Costs · Native node:sqlite',
     summary: 'A hyperlocal neighborhood marketplace with React + Express + SQLite, featuring dual-role authorization, server-enforced review integrity, pincode broadcast alerts, and cost-free phone authentication via Telegram bots and WhatsApp webhooks.',
     problem: 'Small local businesses (salons, cafes, gyms, retail) are priced out of food delivery aggregators and lack a friction-free way to broadcast flash discounts to nearby neighbors without incurring heavy telecom SMS OTP fees.',
@@ -515,7 +511,7 @@ export const projects: Project[] = [
     },
     links: {
       github: 'https://github.com/Keshavgg/local-offers',
-      statusNote: 'Public GitHub repo; detailed HLD v3.1 specification documented in local evergreen.md.'
+      statusNote: 'Open-source repository (local-offers); documented with High-Level System Architecture (HLD).'
     },
     tags: ['Node.js', 'Express', 'SQLite', 'React', 'WhatsApp API', 'Telegram Bot', 'Local Commerce']
   },
@@ -527,8 +523,7 @@ export const projects: Project[] = [
     subtitle: '20-Year Monthly Time-Series Forecasting with Holt-Winters & FastAPI Serving Engine',
     category: 'Data & Analytics',
     tier: 'Completed Project',
-    featured: true,
-    featuredRank: 7,
+    featured: false,
     highlightMetric: '9.85% Holdout MAPE · ₹1,240 MAE',
     summary: 'An agricultural commodity price forecasting microservice analyzing 249 months of historical prices, modeling annual harvest seasonality via Holt-Winters exponential smoothing, and exposing sub-5ms FastAPI inference endpoints with 95% confidence bands.',
     problem: 'Agricultural markets suffer from extreme seasonal price volatility driven by monsoon cycles, harvest gluts, and lean periods. Agribusinesses and procurement teams face severe margin erosion without forward-looking price intelligence.',
@@ -594,8 +589,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Complete submission located in scratch/way2agri_assignment with fully executed solution.ipynb.'
+      statusNote: 'End-to-end technical evaluation submission featuring automated Holt-Winters forecasting and REST microservices.'
     },
     tags: ['Python', 'FastAPI', 'Machine Learning', 'Time-Series', 'Statsmodels', 'AgriTech']
   },
@@ -674,8 +668,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Codebase located in scratch/blackcoffer-assignment; 600 articles processed with 0 nulls.'
+      statusNote: 'Automated extraction pipeline with 15+ NLP financial sentiment metrics processed with zero nulls.'
     },
     tags: ['Python', 'NLP', 'Web Scraping', 'Multithreading', 'Data Engineering', 'Pandas']
   },
@@ -744,8 +737,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Codebase in scratch/plan4u_backend with full cURL collection and test suites.'
+      statusNote: 'Functional backend service with comprehensive cURL collection and geolocation test suites.'
     },
     tags: ['Python', 'FastAPI', 'Geolocation', 'Travel Tech', 'Algorithms', 'REST API']
   },
@@ -881,7 +873,7 @@ export const projects: Project[] = [
     },
     links: {
       github: 'https://github.com/Keshavgg/fast_project',
-      statusNote: 'Public GitHub repository (fast_project) and local codebase in Desktop/pytr/oo.'
+      statusNote: 'Open-source repository (fast_project); asynchronous REST service exploring FastAPI and Pydantic.'
     },
     tags: ['Python', 'FastAPI', 'Pydantic', 'REST API', 'E-Commerce']
   },
@@ -947,8 +939,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Source code inspected in local repository (/Users/keshavjindal/Desktop/pytr/kk/bags.py).'
+      statusNote: 'Object-oriented domain modeling exercise demonstrating class inheritance, encapsulation, and type validation in Python.'
     },
     tags: ['Python', 'OOP', 'Abstract Base Classes', 'Design Patterns']
   },
@@ -1013,8 +1004,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Codebase inspected in local repository (/Users/keshavjindal/Desktop/fat_qpi_me).'
+      statusNote: 'Foundational REST API microservice demonstrating CRUD operations, SQLite persistence, and Pydantic validation.'
     },
     tags: ['Python', 'FastAPI', 'Pagination', 'Algorithms', 'Backend']
   },
@@ -1286,8 +1276,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      github: 'https://github.com/Keshavgg',
-      statusNote: 'Codebase inspected in local scratch/local_explorer directory.'
+      statusNote: 'Native Node.js HTTP server built without external web frameworks to master low-level stream handling.'
     },
     tags: ['Node.js', 'Core HTTP', 'Vanilla JS', 'Zero Dependencies', 'Networking']
   },
@@ -1300,8 +1289,8 @@ export const projects: Project[] = [
     category: 'Backend & Cloud',
     tier: 'Production / Deployed',
     featured: true,
-    featuredRank: 8,
-    highlightMetric: '75% Intake Effort Cut · 40% Latency Drop',
+    featuredRank: 1,
+    highlightMetric: 'Hybrid BM25 + MySQL Layer · LangSmith Evaluated',
     summary: 'An enterprise sourcing orchestration backend engineered inside Visa’s Technology Leadership Team (TLT) Special Projects Group, featuring LangChain agents, ChromaDB vector indexing, vLLM serving optimization, and LangSmith evaluation.',
     problem: 'Global procurement teams at Visa spent hundreds of hours manually processing supplier intake forms (TLMP, RAF) and searching through thousands of unstructured vendor contracts stored across legacy database silos.',
     solution: 'Architected backend components for Project Goro. Implemented LangChain agents with dynamic tool calling and structured JSON outputs to automate form ingestion. Developed a hybrid retrieval engine combining BM25 keyword matching with ChromaDB embeddings to query vendor contracts, and optimized vLLM inference serving on AWS to cut latency by 40%.',
@@ -1354,7 +1343,7 @@ export const projects: Project[] = [
     ],
     improvements: {
       implemented: [
-        'Automated intake processing reducing manual effort by ~75%',
+        'Automated intake processing, drastically reducing manual data entry overhead and processing delays',
         'Hybrid BM25 and ChromaDB vector search pipeline',
         '40% inference latency reduction through vLLM optimizations',
         'End-to-end evaluation harness configured in LangSmith'
@@ -1364,7 +1353,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      statusNote: 'Verified enterprise project completed during official Visa internship (Jun–Aug 2026; Emp ID 550658; 60-page MAIT Industrial Training Report).'
+      statusNote: 'Verified enterprise project completed during official Visa internship (Summer 2026); comprehensive 60-page academic training report approved at MAIT.'
     },
     tags: ['Visa', 'Python', 'MySQL', 'LangChain', 'vLLM', 'LangSmith', 'ChromaDB', 'Enterprise']
   },
@@ -1373,15 +1362,15 @@ export const projects: Project[] = [
     id: 'npst-timepay-chatbot',
     slug: 'npst-timepay-chatbot',
     title: 'TimePay AI Chatbot & Spring Boot Microservices (NPST)',
-    subtitle: 'RAG Support Chatbot & Java Spring Boot Microservices Serving 5,000+ Daily Users',
+    subtitle: 'RAG Support Chatbot & Resilient Java Spring Boot Microservices for Digital Transactions',
     category: 'Backend & Cloud',
     tier: 'Production / Deployed',
     featured: true,
-    featuredRank: 9,
-    highlightMetric: '5,000+ Daily Queries · 65% Auto-Resolution',
-    summary: 'A production conversational AI assistant and Java Spring Boot microservice infrastructure engineered at NPST for TimePay digital payments, automating customer support queries and boosting automated resolution by 65%.',
+    featuredRank: 4,
+    highlightMetric: 'Java 17 / Spring Boot · RAG Support Bot',
+    summary: 'A production conversational AI assistant and Java Spring Boot microservice infrastructure engineered at NPST for TimePay digital payments, automating customer support queries and improving first-contact resolution for routine customer questions.',
     problem: 'Thousands of repetitive Tier-1 payment questions (UPI transaction statuses, refund timelines, account limits) overwhelmed human support agents at TimePay, causing long wait times.',
-    solution: 'Developed an NLP customer support chatbot utilizing RAG and vector embeddings to answer banking inquiries accurately. Engineered high-throughput Java Spring Boot backend microservices serving 5,000+ daily interactions with 99.9% uptime and built an offline evaluation pipeline to prevent financial hallucinations.',
+    solution: 'Developed an NLP customer support chatbot utilizing RAG and vector embeddings to answer banking inquiries accurately. Engineered high-throughput Java Spring Boot backend microservices ensuring reliable data persistence and predictable throughput and built an offline evaluation pipeline to prevent financial hallucinations.',
     architecture: {
       overview: 'Microservices architecture with Spring Boot REST services orchestrating business logic and database access, interacting with a vector store for RAG grounding.',
       diagramType: 'spring-boot',
@@ -1403,7 +1392,7 @@ export const projects: Project[] = [
       {
         category: 'Enterprise Java & AI',
         items: [
-          { name: 'Java 17 & Spring Boot', purpose: 'Core backend microservices handling 5,000+ daily interactions', advantage: 'Enterprise reliability, mature multithreading, and robust ecosystem' },
+          { name: 'Java 17 & Spring Boot', purpose: 'Core backend microservices handling core transaction and support queries', advantage: 'Enterprise reliability, mature multithreading, and robust ecosystem' },
           { name: 'Spring Data JPA & Hibernate', purpose: 'Object-Relational Mapping and connection pooling', advantage: 'Type-safe repository queries and automated transaction management' },
           { name: 'RAG Architecture', purpose: 'Grounding conversational responses in verified bank FAQs', advantage: 'Eliminates hallucinations regarding banking fees and refund windows' }
         ]
@@ -1429,8 +1418,8 @@ export const projects: Project[] = [
     ],
     improvements: {
       implemented: [
-        'RAG customer support chatbot serving 5,000+ daily queries',
-        '65% increase in automated query resolution without human escalation',
+        'RAG customer support chatbot resolving routine banking questions',
+        'Significant reduction in support ticket volume for repetitive transaction queries',
         'High-availability Java Spring Boot backend microservices',
         'Answer accuracy evaluation benchmark'
       ],
@@ -1573,7 +1562,7 @@ export const projects: Project[] = [
       ]
     },
     links: {
-      statusNote: 'Investigated local packaged application (/Users/keshavjindal/Desktop/OmniRoute.app).'
+      statusNote: 'Packaged desktop productivity application exploring local AI automation and tool orchestration.'
     },
     tags: ['Electron', 'Node.js', 'LLMLingua', 'Browser Automation', 'Desktop AI', 'Experimental']
   }

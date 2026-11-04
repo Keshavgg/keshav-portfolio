@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://keshavjindal.dev/sitemap.xml
+Sitemap: https://keshavgg.github.io/keshav-portfolio/sitemap.xml

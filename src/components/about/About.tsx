@@ -26,7 +26,7 @@ export const About: React.FC = () => {
       icon: Compass,
       title: 'Disciplined Problem Solving',
       description:
-        'Having solved 500+ algorithmic problems across LeetCode, I treat algorithm optimization as a daily habit. When faced with an unfamiliar framework or protocol, I trace request flows and inspect source code rather than relying on surface-level tutorials.'
+        'Having solved 370+ algorithmic problems across LeetCode (250+ Medium, 45 Hard), I treat algorithm optimization as a daily habit. When faced with an unfamiliar framework or protocol, I trace request flows and inspect source code rather than relying on surface-level tutorials.'
     }
   ];
 
@@ -57,7 +57,7 @@ export const About: React.FC = () => {
             <div className="pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6">
               <div>
                 <div className="font-display font-extrabold text-2xl sm:text-3xl text-gradient-cyan">
-                  500+
+                  370+
                 </div>
                 <div className="font-mono text-xs text-text-muted mt-1">LeetCode Solved</div>
               </div>

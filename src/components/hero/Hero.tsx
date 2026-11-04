@@ -2,12 +2,15 @@ import React from 'react';
 import { ArrowDown, FileText, Sparkles, MapPin, CheckCircle2, ChevronRight, Briefcase } from 'lucide-react';
 import { profile } from '../../data/profile';
 import { SceneContainer } from '../three/SceneContainer';
+import { getAssetUrl } from '../../utils/assets';
 
 interface HeroProps {
   onOpenRecruiterView: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterView }) => {
+  const resumeUrl = getAssetUrl('/resume/Keshav_Jindal_Resume.pdf');
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background radial ambient lighting */}
@@ -44,15 +47,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterView }) => {
               </div>
               <div className="flex items-center gap-1.5 text-text-secondary">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Ex-Visa Special Projects</span>
+                <span>Visa Special Projects Intern</span>
               </div>
               <div className="flex items-center gap-1.5 text-text-secondary">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Ex-NPST AI Intern</span>
+                <span>NPST AI Engineer Intern</span>
               </div>
               <div className="flex items-center gap-1.5 text-text-secondary">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>500+ LeetCode DSA</span>
+                <span>370+ LeetCode DSA</span>
               </div>
             </div>
 
@@ -67,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterView }) => {
               </a>
 
               <a
-                href="/resume/Keshav_Jindal_Resume.pdf"
+                href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-surface-elevated hover:bg-surface-elevated/80 border border-white/10 hover:border-white/25 text-text-primary font-medium text-sm transition-all"
@@ -81,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRecruiterView }) => {
                 className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-indigo-950/60 hover:bg-indigo-900/60 border border-indigo-500/30 text-indigo-300 font-medium text-sm transition-all shadow-sm"
               >
                 <Briefcase className="w-4 h-4 text-indigo-400" />
-                <span>Recruiter View (30s)</span>
+                <span>Recruiter View (20s)</span>
               </button>
 
               <a

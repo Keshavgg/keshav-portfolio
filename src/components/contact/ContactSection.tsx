@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowRight, Github, Linkedin, FileText, Code2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { profile } from '../../data/profile';
+import { getAssetUrl } from '../../utils/assets';
 
 export const ContactSection: React.FC = () => {
+  const resumeUrl = getAssetUrl('/resume/Keshav_Jindal_Resume.pdf');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -148,10 +150,10 @@ export const ContactSection: React.FC = () => {
                   className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-card border border-white/10 text-xs font-mono text-text-secondary hover:text-amber-400 hover:border-amber-500/40 transition-all"
                 >
                   <Code2 className="w-4 h-4" />
-                  <span>LeetCode (500+)</span>
+                  <span>LeetCode (370+)</span>
                 </a>
                 <a
-                  href="/resume/Keshav_Jindal_Resume.pdf"
+                  href={resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600/15 border border-blue-500/30 text-xs font-mono text-blue-300 hover:bg-blue-600/25 transition-all"

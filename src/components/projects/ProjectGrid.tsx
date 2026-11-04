@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Filter, SlidersHorizontal, Sparkles, FolderArchive, Terminal } from 'lucide-react';
 import { Project, ProjectCategory, ProjectTier } from '../../types';
 import { ProjectCard } from './ProjectCard';
+import { getAssetUrl } from '../../utils/assets';
 
 interface ProjectGridProps {
   projects: Project[];
@@ -47,6 +48,8 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, onOpenCaseSt
     });
   }, [projects, selectedCategory, selectedTier, searchQuery]);
 
+  const inventoryUrl = getAssetUrl('/PROJECT_INVENTORY.md');
+
   return (
     <section id="projects" className="py-24 relative overflow-hidden border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +71,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({ projects, onOpenCaseSt
             </div>
             
             <a
-              href="/PROJECT_INVENTORY.md"
+              href={inventoryUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-elevated border border-white/10 hover:border-cyan-500/40 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition-all shrink-0"

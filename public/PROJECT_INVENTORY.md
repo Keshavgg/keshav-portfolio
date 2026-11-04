@@ -49,7 +49,7 @@ Every project listed below has been verified through direct source-code inspecti
     - Separation of deterministic math and AI advice: Python rules strictly control money calculations; the LLM cannot override calculated financial amounts.
 14. **Technical Limitations:** Lacks multi-tenant enterprise RBAC and distributed Celery worker queue; distance validation relies on contract baseline rather than real-time GPS/FASTag toll telemetry.
 15. **Potential Improvements:** Integration with FASTag toll plaza APIs and GPS telematics; migration from SQLite to PostgreSQL with row-level security.
-16. **GitHub URL:** Local repository (`/Users/keshavjindal/Desktop/FraudCheckerMVP`); pitch deck generated for FITT (IIT Delhi).
+16. **GitHub URL:** Private repository (evaluated for FITT incubation pitch, IIT Delhi; available on request).
 17. **Live Deployment URL:** Localhost prototype (demonstrated in synthetic pilot).
 
 ---
@@ -84,7 +84,7 @@ Every project listed below has been verified through direct source-code inspecti
 14. **Technical Limitations:** Payment gateway (Razorpay/Stripe) runs in sandbox/simulation mode; live GDS flight booking integration is simulated via verified schedule datasets.
 15. **Potential Improvements:** Direct Amadeus/Sabre GDS API integration; live WebSockets for instant seat-map selection.
 16. **GitHub URL:** https://github.com/Keshavgg/orbit-travel-app
-17. **Live Deployment URL:** Local prototype deployed at `localhost:3005` (backend at `localhost:8000`).
+17. **Live Deployment URL:** Local prototype deployed at `Local development server` (backend at `Local development server`).
 
 ---
 
@@ -113,7 +113,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Implemented spatial geo-radius indexing directly in Python using vectorized Haversine calculations to deliver zero-dependency local performance without needing PostGIS for early-stage deployments.
 14. **Technical Limitations:** Static mock datasets for live event ticket availability.
 15. **Potential Improvements:** Live integration with Google Places API and BookMyShow ticket APIs; WebSocket synchronization for collaborative squad planning.
-16. **GitHub URL:** Packaged in `plan4u_backend.zip` and located in `/Users/keshavjindal/.gemini/antigravity/scratch/plan4u_backend`.
+16. **GitHub URL:** Private codebase (includes cURL collection and test suites; available on request).
 17. **Live Deployment URL:** Local staging instance.
 
 ---
@@ -177,8 +177,8 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Optimized pipeline execution for Apple Silicon unified memory (M-series) using MPS device acceleration and 1-step SDXL-Turbo inference, eliminating cloud GPU hosting expenses.
 14. **Technical Limitations:** High memory consumption during simultaneous model weights loading; requires Apple Silicon with 16GB+ RAM.
 15. **Potential Improvements:** Automated beat-matching to background audio tracks; multi-speaker dialog generation.
-16. **GitHub URL:** https://github.com/Keshavgg/gen-ai1 (and local codebase in `/Users/keshavjindal/.gemini/antigravity/scratch/facts-video-maker`).
-17. **Live Deployment URL:** Local workstation deployment (`http://localhost:7860`).
+16. **GitHub URL:** https://github.com/Keshavgg/gen-ai1.
+17. **Live Deployment URL:** Local workstation deployment (`Local development server / Demo on request`).
 
 ---
 
@@ -208,7 +208,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Built a complete client-side admissions CRM inside the frontend, enabling gym owners to manage leads without requiring an immediate database migration.
 14. **Technical Limitations:** Relies on browser local storage rather than remote database synchronization in the demo build.
 15. **Potential Improvements:** Supabase / PostgreSQL backend integration with automated SMS and WhatsApp confirmation triggers.
-16. **GitHub URL:** Codebase located in `/Users/keshavjindal/.gemini/antigravity/scratch/forge-athletics`.
+16. **GitHub URL:** Private repository (production build verified; available on request).
 17. **Live Deployment URL:** Ready for Vercel/Netlify deployment (built via `npm run build`).
 
 ---
@@ -240,7 +240,7 @@ Every project listed below has been verified through direct source-code inspecti
 14. **Technical Limitations:** Geolocation search currently relies on pincode matching rather than geospatial bounding-box queries.
 15. **Potential Improvements:** Migration from SQLite to PostgreSQL with PostGIS indexing.
 16. **GitHub URL:** https://github.com/Keshavgg/local-offers (and `Keshavgg/evergreen-local-shopping`).
-17. **Live Deployment URL:** Localhost instance (`http://localhost:5173` / `http://localhost:3001`).
+17. **Live Deployment URL:** Localhost instance (`Local development server / Demo on request` / `Local development server / Demo on request`).
 
 ---
 
@@ -268,8 +268,8 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Selected Holt-Winters over deep learning architectures (LSTM/Transformers) because the sample size ($N=249$) was susceptible to neural over-parameterization, whereas Holt-Winters explicitly isolated recurring annual harvest cycles with superior interpretability and zero GPU overhead.
 14. **Technical Limitations:** Assumes additive seasonal variance; external macro supply shocks (unseasonal rainfall, export bans) require manual covariate adjustment.
 15. **Potential Improvements:** Exogenous variable integration (rainfall index, diesel prices, global commodity indices) via SARIMAX or Prophet.
-16. **GitHub URL:** Codebase in `/Users/keshavjindal/.gemini/antigravity/scratch/way2agri_assignment`.
-17. **Live Deployment URL:** Local microservice (`http://localhost:8000/docs`).
+16. **GitHub URL:** Technical submission codebase (available on request).
+17. **Live Deployment URL:** Local microservice (`Local development server / Demo on request`).
 
 ---
 
@@ -297,7 +297,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Implemented multi-file stop-word purging against the Master Dictionary prior to running article scoring, ensuring that domain-specific filler terms do not skew polarity scores.
 14. **Technical Limitations:** Single-machine thread concurrency; does not use distributed task queues (Celery/Kafka).
 15. **Potential Improvements:** Async `httpx`/`playwright` for JavaScript-rendered SPAs; sentiment model fine-tuning with FinBERT.
-16. **GitHub URL:** Codebase in `/Users/keshavjindal/.gemini/antigravity/scratch/blackcoffer-assignment`.
+16. **GitHub URL:** Technical submission codebase (available on request).
 17. **Live Deployment URL:** Local pipeline deliverable.
 
 ---
@@ -376,7 +376,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Enforced contractual consistency across product variants through Python abstract base classes.
 14. **Technical Limitations:** Domain model only; lacks persistent storage or HTTP interface.
 15. **Potential Improvements:** Connect to FastAPI catalog service (Project 11) for database persistence.
-16. **GitHub URL:** Local script (`/Users/keshavjindal/Desktop/pytr/kk/bags.py`).
+16. **GitHub URL:** Foundational Python domain modeling script.
 17. **Live Deployment URL:** N/A.
 
 ---
@@ -402,7 +402,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Implemented algorithmic pagination slicing without external ORM helper libraries.
 14. **Technical Limitations:** Lacks database indexing; linear scan on large datasets.
 15. **Potential Improvements:** Migration to SQLite/PostgreSQL with `OFFSET` and `LIMIT` SQL queries.
-16. **GitHub URL:** Local project (`/Users/keshavjindal/Desktop/fat_qpi_me`).
+16. **GitHub URL:** Foundational FastAPI microservice.
 17. **Live Deployment URL:** Local service.
 
 ---
@@ -506,8 +506,8 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Built without `node_modules` or dependencies, proving deep mastery of core Node.js runtime primitives.
 14. **Technical Limitations:** Lacks compression, clustering, and HTTP/2 streaming.
 15. **Potential Improvements:** Add gzip compression and caching headers.
-16. **GitHub URL:** Codebase in `/Users/keshavjindal/.gemini/antigravity/scratch/local_explorer`.
-17. **Live Deployment URL:** Localhost instance (`http://localhost:3000`).
+16. **GitHub URL:** Technical submission codebase (available on request).
+17. **Live Deployment URL:** Localhost instance (`Local development server / Demo on request`).
 
 ---
 
@@ -523,7 +523,7 @@ Every project listed below has been verified through direct source-code inspecti
    - **Infrastructure & Serving:** vLLM inference engine, AWS (EC2, S3), GitHub Actions CI/CD
 6. **Main Implemented Features:**
    - Selected out of 440+ applicants to architect backend components for high-availability financial systems.
-   - Built LangChain agents with dynamic tool calling and structured JSON outputs, reducing manual intake entry effort by ~75%.
+   - Built LangChain agents with dynamic tool calling and structured JSON outputs, drastically reducing manual data entry overhead and operational turnaround time.
    - Implemented dual-retrieval pipeline combining BM25 keyword matching with TF-IDF and ChromaDB semantic vectors for vendor contract discovery.
    - Optimized vLLM inference serving configurations, reducing inference latency by 40%.
    - Configured end-to-end evaluation metrics in LangSmith to benchmark LLM extraction accuracy against ground-truth contracts.
@@ -536,7 +536,7 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Implemented hybrid lexical (BM25) and dense semantic retrieval to overcome legal terminology mismatches that pure vector embeddings routinely failed to retrieve accurately.
 14. **Technical Limitations:** Internal enterprise intellectual property; source code remains within Visa's secure enterprise boundary.
 15. **Potential Improvements:** Production scale-out across global Visa regional hubs.
-16. **GitHub URL:** Enterprise confidential (verified via official Visa Service Certificate, Employee ID 550658, and MAIT 60-page Industrial Training Report).
+16. **GitHub URL:** Enterprise confidential (verified via official Visa Service Certificate, and MAIT 60-page Industrial Training Report).
 17. **Live Deployment URL:** Internal Visa Enterprise Network.
 
 ---
@@ -552,8 +552,8 @@ Every project listed below has been verified through direct source-code inspecti
    - **AI/NLP:** RAG (Retrieval-Augmented Generation), vector embeddings, few-shot prompt engineering
 6. **Main Implemented Features:**
    - Engineered and managed AI conversational chatbot answering customer support queries with contextual RAG.
-   - Built scalable Java Spring Boot backend microservices handling 5,000+ interactions daily.
-   - Increased query resolution without human intervention by 65%.
+   - Built scalable Java Spring Boot backend microservices ensuring reliable data persistence and predictable throughput.
+   - Increased query resolution for routine banking questions without human intervention.
    - Built systematic answer accuracy evaluation pipeline scoring model outputs against validated banking support benchmarks.
 7. **Architecture:** Microservice architecture with Spring Boot REST API orchestrating business logic and database access, interacting with an NLP embedding model and vector knowledge store.
 8. **Backend Functionality:** Spring MVC request routing, Spring Data JPA persistence, transaction management, connection pooling, and token-rate limiting.
@@ -611,5 +611,5 @@ Every project listed below has been verified through direct source-code inspecti
 13. **Interesting Engineering Decisions:** Integrated LLMLingua prompt compression directly into the SSE stream dispatcher to sustain multi-hour agent sessions within strict context limits.
 14. **Technical Limitations:** High memory overhead of concurrent headless Chromium browser instances.
 15. **Potential Improvements:** Lightweight headless browser pooling and sandboxed container isolation.
-16. **GitHub URL:** Local packaged application (`/Users/keshavjindal/Desktop/OmniRoute.app`).
+16. **GitHub URL:** Packaged desktop application (macOS universal bundle).
 17. **Live Deployment URL:** Desktop application build.

@@ -1,11 +1,15 @@
 import React from 'react';
 import { ArrowUp, Github, Linkedin, Code2, FileText, Heart } from 'lucide-react';
 import { profile } from '../../data/profile';
+import { getAssetUrl } from '../../utils/assets';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const resumeUrl = getAssetUrl('/resume/Keshav_Jindal_Resume.pdf');
+  const inventoryUrl = getAssetUrl('/PROJECT_INVENTORY.md');
 
   return (
     <footer className="border-t border-white/[0.08] bg-[#050608] py-14 text-text-secondary text-xs sm:text-sm font-mono">
@@ -36,6 +40,7 @@ export const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
               title="GitHub"
+              aria-label="GitHub Profile"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -45,6 +50,7 @@ export const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
               title="LinkedIn"
+              aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
             </a>
@@ -53,16 +59,18 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
-              title="LeetCode (500+)"
+              title="LeetCode (370+ Solved)"
+              aria-label="LeetCode Profile"
             >
               <Code2 className="w-4 h-4" />
             </a>
             <a
-              href="/resume/Keshav_Jindal_Resume.pdf"
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
               title="Resume PDF"
+              aria-label="Resume PDF"
             >
               <FileText className="w-4 h-4" />
             </a>
@@ -86,7 +94,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-3">
             <span>Built with React, TypeScript, Three.js & Tailwind</span>
             <span>•</span>
-            <a href="/PROJECT_INVENTORY.md" className="hover:text-cyan-400 transition-colors">
+            <a href={inventoryUrl} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
               Project Inventory (21)
             </a>
           </div>

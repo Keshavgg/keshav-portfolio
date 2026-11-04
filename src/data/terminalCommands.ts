@@ -160,7 +160,7 @@ export const executeTerminalCommand = (rawCommand: string): CommandResponse => {
         type: 'text',
         content: [
           '📊 SYSTEM TELEMETRY & STATS:',
-          `  LeetCode Solved:       ${profile.stats.leetcodeCount}+ problems`,
+          `  LeetCode Solved:       ${profile.stats.leetcodeCount}+ problems (250+ Medium, 45 Hard)`,
           `  Verified Internships:  ${profile.stats.internshipsCompleted} (Visa & NPST)`,
           `  Discovered Projects:   ${projects.length} systems`,
           `  Graduation Horizon:    May ${profile.stats.graduationYear}`
@@ -179,7 +179,7 @@ export const executeTerminalCommand = (rawCommand: string): CommandResponse => {
           '  Tier 5: Learning Projects (3)',
           '  Tier 6: Concept / Proposed Ideas (1)',
           '',
-          'Full documentation available at: /PROJECT_INVENTORY.md'
+          'Full audit document available in PROJECT_INVENTORY.md'
         ]
       };
 

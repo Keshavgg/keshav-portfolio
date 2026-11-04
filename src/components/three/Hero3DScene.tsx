@@ -1,16 +1,16 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Atmospheric floating cybernetic particles
-function ParticleField({ count = 120 }: { count?: number }) {
+// Atmospheric floating cybernetic particles with subtle pulse
+function ParticleField({ count = 80 }: { count?: number }) {
   const points = useMemo(() => {
     const p = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
-      const r = 2.4 + Math.random() * 3.5;
+      const r = 2.2 + Math.random() * 3.2;
       
       p[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       p[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
@@ -23,8 +23,8 @@ function ParticleField({ count = 120 }: { count?: number }) {
 
   useFrame((_, delta) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.04;
-      pointsRef.current.rotation.x += delta * 0.02;
+      pointsRef.current.rotation.y += delta * 0.035;
+      pointsRef.current.rotation.x += delta * 0.015;
     }
   });
 
@@ -37,10 +37,10 @@ function ParticleField({ count = 120 }: { count?: number }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.035}
-        color="#60A5FA"
+        size={0.032}
+        color="#38BDF8"
         transparent
-        opacity={0.65}
+        opacity={0.6}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
@@ -48,80 +48,136 @@ function ParticleField({ count = 120 }: { count?: number }) {
   );
 }
 
-// Interactive Computational Core Geometry
-function ComputationalCore({ pointer }: { pointer: React.MutableRefObject<{ x: number; y: number }> }) {
+// Interactive Computational Core Geometry with smooth natural response
+function ComputationalCore({ 
+  pointer,
+  isMobile 
+}: { 
+  pointer: React.MutableRefObject<{ x: number; y: number }>;
+  isMobile: boolean;
+}) {
   const outerGroupRef = useRef<THREE.Group>(null!);
   const innerMeshRef = useRef<THREE.Mesh>(null!);
   const wireframeRef = useRef<THREE.Mesh>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
+  const secondaryRingRef = useRef<THREE.Mesh>(null!);
+  const coreRef = useRef<THREE.Mesh>(null!);
+
+  // Rotation accumulator to allow natural continuous spin while tilting toward pointer
+  const spinRef = useRef({ x: 0, y: 0 });
 
   useFrame((state, delta) => {
     if (!outerGroupRef.current) return;
 
-    // Natural rotation
-    outerGroupRef.current.rotation.y += delta * 0.25;
-    outerGroupRef.current.rotation.x += delta * 0.12;
+    // Accumulate base continuous rotation
+    spinRef.current.y += delta * 0.22;
+    spinRef.current.x += delta * 0.1;
 
+    // Natural smooth pointer tilt with easing (lerp)
+    const targetTiltX = -pointer.current.y * 0.35;
+    const targetTiltY = pointer.current.x * 0.45;
+    const targetPosX = pointer.current.x * 0.35;
+    const targetPosY = pointer.current.y * 0.35;
+
+    // Outer group follows translation smoothly
+    outerGroupRef.current.position.x = THREE.MathUtils.lerp(outerGroupRef.current.position.x, targetPosX, 0.06);
+    outerGroupRef.current.position.y = THREE.MathUtils.lerp(outerGroupRef.current.position.y, targetPosY, 0.06);
+
+    // Apply combined continuous rotation + responsive tilt
+    outerGroupRef.current.rotation.x = THREE.MathUtils.lerp(
+      outerGroupRef.current.rotation.x,
+      spinRef.current.x + targetTiltX,
+      0.08
+    );
+    outerGroupRef.current.rotation.y = THREE.MathUtils.lerp(
+      outerGroupRef.current.rotation.y,
+      spinRef.current.y + targetTiltY,
+      0.08
+    );
+
+    // Counter-rotating inner torus knot for visual depth
     if (innerMeshRef.current) {
-      innerMeshRef.current.rotation.y -= delta * 0.35;
-      innerMeshRef.current.rotation.z += delta * 0.2;
+      innerMeshRef.current.rotation.y -= delta * 0.3;
+      innerMeshRef.current.rotation.z += delta * 0.18;
     }
 
+    // Orbital rings rotation
     if (ringRef.current) {
-      ringRef.current.rotation.z += delta * 0.4;
-      ringRef.current.rotation.x -= delta * 0.15;
+      ringRef.current.rotation.z += delta * 0.35;
+      ringRef.current.rotation.x -= delta * 0.12;
+    }
+    if (secondaryRingRef.current) {
+      secondaryRingRef.current.rotation.y += delta * 0.28;
+      secondaryRingRef.current.rotation.z -= delta * 0.2;
     }
 
-    // Subtle pointer tracking response
-    const targetX = pointer.current.x * 0.45;
-    const targetY = pointer.current.y * 0.45;
-    outerGroupRef.current.position.x = THREE.MathUtils.lerp(outerGroupRef.current.position.x, targetX, 0.05);
-    outerGroupRef.current.position.y = THREE.MathUtils.lerp(outerGroupRef.current.position.y, targetY, 0.05);
+    // Core pulsing glow
+    if (coreRef.current) {
+      const pulse = 1.0 + Math.sin(state.clock.elapsedTime * 2.2) * 0.25;
+      const mat = coreRef.current.material as THREE.MeshStandardMaterial;
+      if (mat) {
+        mat.emissiveIntensity = pulse * 1.2;
+      }
+    }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.4} floatIntensity={0.6}>
+    <Float speed={1.8} rotationIntensity={0.3} floatIntensity={0.5}>
       <group ref={outerGroupRef}>
         {/* Outer Wireframe Icosahedron */}
         <mesh ref={wireframeRef}>
           <icosahedronGeometry args={[1.75, 1]} />
           <meshStandardMaterial
-            color="#3B82F6"
+            color="#2563EB"
             wireframe
             transparent
-            opacity={0.35}
-            roughness={0.2}
-            metalness={0.8}
+            opacity={0.32}
+            roughness={0.25}
+            metalness={0.85}
           />
         </mesh>
 
-        {/* Mid Glass-Metallic Torus Knot */}
+        {/* Mid Metallic Titanium Torus Knot */}
         <mesh ref={innerMeshRef}>
-          <torusKnotGeometry args={[0.9, 0.28, 100, 16]} />
+          <torusKnotGeometry args={[0.9, 0.26, isMobile ? 64 : 100, 16]} />
           <meshStandardMaterial
-            color="#1E293B"
-            metalness={0.92}
-            roughness={0.15}
+            color="#0F172A"
+            metalness={0.94}
+            roughness={0.14}
             emissive="#1E3A8A"
-            emissiveIntensity={0.35}
+            emissiveIntensity={0.3}
           />
         </mesh>
 
-        {/* Equatorial Orbital Ring */}
+        {/* Primary Equatorial Orbital Ring */}
         <mesh ref={ringRef}>
-          <torusGeometry args={[2.2, 0.02, 16, 100]} />
+          <torusGeometry args={[2.15, 0.018, 16, isMobile ? 60 : 100]} />
           <meshStandardMaterial
             color="#06B6D4"
             emissive="#00F0FF"
-            emissiveIntensity={0.8}
+            emissiveIntensity={0.85}
             metalness={0.9}
             roughness={0.1}
           />
         </mesh>
 
+        {/* Secondary Tilted Orbital Ring */}
+        <mesh ref={secondaryRingRef} rotation={[1.1, 0.4, 0]}>
+          <torusGeometry args={[2.3, 0.012, 16, isMobile ? 50 : 80]} />
+          <meshStandardMaterial
+            color="#8B5CF6"
+            emissive="#A78BFA"
+            emissiveIntensity={0.7}
+            metalness={0.9}
+            roughness={0.1}
+            transparent
+            opacity={0.8}
+          />
+        </mesh>
+
         {/* Inner Glowing Core Sphere */}
-        <mesh>
-          <sphereGeometry args={[0.45, 32, 32]} />
+        <mesh ref={coreRef}>
+          <sphereGeometry args={[0.42, 32, 32]} />
           <meshStandardMaterial
             color="#60A5FA"
             emissive="#3B82F6"
@@ -136,34 +192,56 @@ function ComputationalCore({ pointer }: { pointer: React.MutableRefObject<{ x: n
 
 export const Hero3DScene: React.FC = () => {
   const pointer = useRef({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile, { passive: true });
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handlePointerMove = (e: React.PointerEvent) => {
-    // Normalized coordinates (-1 to 1)
     const { clientX, clientY, currentTarget } = e;
     const rect = currentTarget.getBoundingClientRect();
     pointer.current.x = ((clientX - rect.left) / rect.width) * 2 - 1;
     pointer.current.y = -(((clientY - rect.top) / rect.height) * 2 - 1);
   };
 
+  const handlePointerLeave = () => {
+    // Smoothly return pointer toward center
+    pointer.current.x = 0;
+    pointer.current.y = 0;
+  };
+
   return (
     <div 
       className="w-full h-full relative cursor-grab active:cursor-grabbing select-none"
       onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
     >
       <Canvas
         camera={{ position: [0, 0, 5.2], fov: 45 }}
-        dpr={[1, 1.5]}
+        dpr={isMobile ? [1, 1.25] : [1, 1.75]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
-        {/* Cinematic Studio Lighting */}
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#E0F2FE" />
-        <pointLight position={[-10, -10, -5]} intensity={1.2} color="#8B5CF6" />
-        <pointLight position={[0, 4, 3]} intensity={1.8} color="#00F0FF" />
+        {/* 3-Point Studio Cinematic Lighting */}
+        <ambientLight intensity={0.45} color="#0B132B" />
+        
+        {/* Warm key light */}
+        <directionalLight position={[6, 8, 5]} intensity={1.7} color="#E0F2FE" />
+        
+        {/* Rim back light for crisp silhouettes */}
+        <pointLight position={[-8, -6, -4]} intensity={1.4} color="#8B5CF6" />
+        
+        {/* Specular cyan accent light */}
+        <pointLight position={[0, 3, 2.5]} intensity={1.6} color="#00F0FF" />
 
-        {/* Interactive 3D Objects */}
-        <ComputationalCore pointer={pointer} />
-        <ParticleField count={90} />
+        {/* Dynamic Scene Objects */}
+        <ComputationalCore pointer={pointer} isMobile={isMobile} />
+        <ParticleField count={isMobile ? 45 : 85} />
       </Canvas>
     </div>
   );

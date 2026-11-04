@@ -6,10 +6,10 @@ export const skillCategories: SkillCategory[] = [
     iconName: 'Code2',
     description: 'Languages used for building scalable backends, systems, and algorithms',
     skills: [
-      { name: 'Java', context: 'Primary enterprise language; Spring Boot, Hibernate, Multithreading', highlight: true },
-      { name: 'Python', context: 'AI/ML systems, FastAPI, LangChain, PyTorch, statistical modeling', highlight: true },
-      { name: 'C / C++', context: 'Algorithmic problem solving; 500+ LeetCode problems; memory management', highlight: true },
-      { name: 'TypeScript', context: 'Full-stack type safety; Node.js, Express, Next.js 14', highlight: true },
+      { name: 'Java', context: 'Primary enterprise language; Spring Boot, Hibernate, Multithreading, OOP', highlight: true },
+      { name: 'Python', context: 'AI/ML systems, FastAPI, LangChain, BM25/TF-IDF, statistical modeling', highlight: true },
+      { name: 'C / C++', context: 'Algorithmic problem solving; 370+ LeetCode problems (250+ Medium, 45 Hard); memory management', highlight: true },
+      { name: 'TypeScript', context: 'Full-stack type safety; Node.js, Express, Next.js 14, React', highlight: true },
       { name: 'JavaScript (ES6+)', context: 'Asynchronous event loops, DOM, modern frontends' },
       { name: 'SQL', context: 'Relational data modeling, indexing, ACID transactions, complex joins' }
     ]
@@ -19,12 +19,12 @@ export const skillCategories: SkillCategory[] = [
     iconName: 'Server',
     description: 'Frameworks and runtimes powering high-availability services',
     skills: [
-      { name: 'Spring Boot', context: 'Enterprise microservices, Spring MVC, Spring Security, dependency injection', highlight: true },
+      { name: 'Spring Boot', context: 'Enterprise microservices, Spring MVC, Spring Data JPA, dependency injection', highlight: true },
       { name: 'FastAPI', context: 'High-throughput async Python APIs, Pydantic validation, OpenAPI specs', highlight: true },
       { name: 'Spring Data JPA / Hibernate', context: 'ORM mappings, lazy loading, JPQL, transaction management' },
       { name: 'Node.js & Express', context: 'RESTful services, JWT auth, WebSockets, rate limiting' },
       { name: 'Docker & Containers', context: 'Multi-stage Dockerfiles, image minimization, local container stacks' },
-      { name: 'Kubernetes (K8s)', context: 'Staging manifests, service ingress, Helm chart deployments' },
+      { name: 'Kubernetes (K8s)', context: 'Staging manifests, service ingress, Helm basics' },
       { name: 'AWS (EC2, S3)', context: 'Cloud deployments, IAM policies, static artifact storage' }
     ]
   },
@@ -33,12 +33,12 @@ export const skillCategories: SkillCategory[] = [
     iconName: 'Cpu',
     description: 'Generative AI architectures, vector search, and agentic workflows',
     skills: [
-      { name: 'LangChain & LangGraph', context: 'Multi-agent orchestration, state channels, tool calling', highlight: true },
+      { name: 'LangChain & Agentic Workflows', context: 'Multi-agent orchestration, state channels, tool calling', highlight: true },
       { name: 'Retrieval-Augmented Generation (RAG)', context: 'Hybrid BM25 + dense vector retrieval, semantic chunking', highlight: true },
+      { name: 'Information Retrieval (BM25, TF-IDF)', context: 'Lexical scoring, term statistics, tokenization over MySQL', highlight: true },
       { name: 'Vector DBs (ChromaDB, Pinecone)', context: 'Embedding indexing, cosine similarity, metadata filtering' },
-      { name: 'LangSmith', context: 'Automated LLM evaluation, hallucination tracking, prompt benchmarking' },
-      { name: 'vLLM Serving Optimization', context: 'PagedAttention, KV cache management, 40% latency reductions' },
-      { name: 'NeMo Guardrails', context: 'Programmable safety rails, topic boundaries, citation enforcement' },
+      { name: 'LangSmith', context: 'Automated evaluation, hallucination tracking, prompt benchmarking', highlight: true },
+      { name: 'LLM Inference & Guardrails', context: 'Structured JSON generation, Pydantic schemas, prompt guardrails' },
       { name: 'Time-Series & Classical ML', context: 'Holt-Winters forecasting, scikit-learn, statsmodels, NLP lexicons' }
     ]
   },
@@ -63,7 +63,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Next.js 14', context: 'App Router, Server Actions, SSR, route handlers' },
       { name: 'Tailwind CSS', context: 'Utility-first styling, responsive layouts, design systems' },
       { name: 'Three.js & WebGL', context: 'Interactive 3D scenes, shaders, lighting, canvas performance' },
-      { name: 'Framer Motion & GSAP', context: 'Spring physics, stagger sequences, timeline animations' }
+      { name: 'Framer Motion', context: 'Spring physics, stagger sequences, timeline animations' }
     ]
   },
   {
@@ -71,7 +71,7 @@ export const skillCategories: SkillCategory[] = [
     iconName: 'Wrench',
     description: 'Engineering practices ensuring code quality and reliability',
     skills: [
-      { name: 'Data Structures & Algorithms', context: '500+ LeetCode problems solved; graph, DP, tree mastery', highlight: true },
+      { name: 'Data Structures & Algorithms', context: '370+ LeetCode problems solved (250+ Medium, 45 Hard); graph, DP, tree mastery', highlight: true },
       { name: 'System Design & Distributed Patterns', context: 'Event-driven architectures, caching tiers, circuit breakers' },
       { name: 'Git & GitHub Actions', context: 'Feature branching, PR review workflows, automated CI/CD pipelines' },
       { name: 'Maven & Gradle', context: 'Java dependency lifecycle management and build automation' },
