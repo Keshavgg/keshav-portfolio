@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Lenis from 'lenis';
+import { HelloPreloader } from './components/cinematic/HelloPreloader';
 import { Navbar } from './components/navigation/Navbar';
-import { Hero } from './components/hero/Hero';
+import { Hero, runHeroEntranceAnimation } from './components/hero/Hero';
 import { MarqueeTicker } from './components/hero/MarqueeTicker';
 import { ImpactMetrics } from './components/hero/ImpactMetrics';
 import { About } from './components/about/About';
@@ -17,8 +19,31 @@ import { projects } from './data/projects';
 import { Project } from './types';
 
 export const App: React.FC = () => {
+  const [showPreloader, setShowPreloader] = useState<boolean>(true);
   const [recruiterModalOpen, setRecruiterModalOpen] = useState<boolean>(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState<Project | null>(null);
+
+  // Initialize Lenis Smooth Inertial Scroll (Exact Ashmit smooth feeling)
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      smoothWheel: true,
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
   // Check URL hash for deep links
   useEffect(() => {
@@ -39,6 +64,12 @@ export const App: React.FC = () => {
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
+
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+    // Fallback ensure hero animation ran
+    runHeroEntranceAnimation();
+  };
 
   const openProjectCaseStudy = (project: Project) => {
     setActiveCaseStudy(project);
@@ -71,6 +102,14 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
+      {/* Hello Preloader (Exact Ashmit 24-language cycling with liquid SVG curve exit) */}
+      {showPreloader && (
+        <HelloPreloader
+          onTriggerHero={runHeroEntranceAnimation}
+          onComplete={handlePreloaderComplete}
+        />
+      )}
+
       {/* Top Navbar */}
       <Navbar
         onOpenRecruiterView={openRecruiterView}
@@ -79,7 +118,10 @@ export const App: React.FC = () => {
 
       {/* Main Flow Sections */}
       <main className="relative">
-        <Hero onOpenRecruiterView={openRecruiterView} />
+        <Hero
+          onOpenRecruiterView={openRecruiterView}
+          animTriggered={!showPreloader}
+        />
         <MarqueeTicker />
         <ImpactMetrics />
         <About />

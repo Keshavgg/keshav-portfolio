@@ -72,15 +72,53 @@
   width: 100%;
 }
 
-/* Hero Letter Hover Animation */
+/* Ashmit Hero Letters & Cascade Animation Structure */
+.hero-word {
+  display: flex;
+  overflow: hidden;
+  line-height: 0.85;
+}
+
 .hero-letter {
   display: inline-block;
-  transition: transform 0.4s var(--transition-main), color 0.2s ease;
+  transform: translateY(-110%);
   will-change: transform;
+  transition: color 0.2s ease;
 }
 
 .hero-letter:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.03) !important;
+  color: var(--text-gray-color);
+}
+
+/* Number Ticker Column Structure (Ashmit exact style) */
+.hero-title__number {
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-title__number-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 1em;
+  overflow: hidden;
+}
+
+.hero-title__number-wrap span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+  will-change: transform;
+}
+
+.hero-title__number-second {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* Custom Scrollbar */
@@ -102,18 +140,6 @@
   background: var(--text-gray-second-color);
 }
 
-/* Glass Panels & Subtle Card Hover */
-.ashmit-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  transition: all 0.35s var(--transition-main);
-}
-
-.ashmit-card:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
-}
-
 /* Ticker Animation */
 .ticker-wrap {
   overflow: hidden;
@@ -128,12 +154,4 @@
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* Number ticker roll */
-.number-roll {
-  display: inline-block;
-  overflow: hidden;
-  height: 1.1em;
-  vertical-align: bottom;
 }

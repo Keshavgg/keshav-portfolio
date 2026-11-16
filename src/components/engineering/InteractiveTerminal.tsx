@@ -32,8 +32,16 @@ export const InteractiveTerminal: React.FC = () => {
 
   const quickCommands = ['help', 'about', 'projects', 'skills', 'experience', 'stats', 'contact'];
 
+  const isInitialMount = useRef(true);
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    // Scroll only internal terminal box, never window
+    if (bottomRef.current && bottomRef.current.parentElement) {
+      bottomRef.current.parentElement.scrollTop = bottomRef.current.parentElement.scrollHeight;
+    }
   }, [history]);
 
   const handleCommandSubmit = (e?: React.FormEvent) => {
