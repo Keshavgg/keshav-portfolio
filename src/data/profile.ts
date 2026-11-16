@@ -12,7 +12,7 @@ export const profile: ProfileData = {
   email: 'keshav.jindal.7029@gmail.com',
   phone: '+91 8368317466',
   github: 'https://github.com/Keshavgg',
-  linkedin: 'https://linkedin.com/in/keshav-jindal',
+  linkedin: 'https://linkedin.com/in/keshav7029',
   leetcode: 'https://leetcode.com/u/XxKeshavxX/',
   resumeFileName: 'Keshav_Jindal_Resume.pdf',
   stats: {
