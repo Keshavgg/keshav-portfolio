@@ -28,7 +28,7 @@ export const RecruiterViewModal: React.FC<RecruiterViewModalProps> = ({
     .sort((a, b) => (a.featuredRank || 99) - (b.featuredRank || 99))
     .slice(0, 3);
 
-  const resumeUrl = getAssetUrl('/resume/Keshav_Jindal_Resume.pdf');
+  const resumeUrl = getAssetUrl('/Keshav_Jindal_Resume.pdf');
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
@@ -141,11 +141,11 @@ export const RecruiterViewModal: React.FC<RecruiterViewModalProps> = ({
             </div>
             <div className="p-3.5 rounded-xl bg-surface-card border border-white/5">
               <div className="text-text-muted">LeetCode DSA</div>
-              <div className="text-text-primary font-bold mt-1">370+ Solved (250+ Med)</div>
+              <div className="text-text-primary font-bold mt-1">500+ Solved (DSA Master)</div>
             </div>
             <div className="p-3.5 rounded-xl bg-surface-card border border-white/5">
               <div className="text-text-muted">Enterprise Internships</div>
-              <div className="text-text-primary font-bold mt-1">2 Verified (Visa, NPST)</div>
+              <div className="text-text-primary font-bold mt-1">3 Verified (Visa, Atlys, NPST)</div>
             </div>
           </div>
 
@@ -159,7 +159,7 @@ export const RecruiterViewModal: React.FC<RecruiterViewModalProps> = ({
               <span className="text-[11px] font-mono text-emerald-400">Institutional Certificates Verified</span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
               {experiences.map((exp) => (
                 <div 
                   key={exp.id}

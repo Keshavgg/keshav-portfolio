@@ -1,167 +1,182 @@
 import React from 'react';
-import { Layers, Cpu, Server, Compass, GraduationCap, CheckCircle } from 'lucide-react';
+import { CheckCircle2, GraduationCap, Award, Code2, Terminal } from 'lucide-react';
 import { profile, education } from '../../data/profile';
 
 export const About: React.FC = () => {
-  const pillars = [
-    {
-      icon: Server,
-      title: 'Backend Systems & Architecture',
-      description:
-        'I am fascinated by how scalable systems maintain state, route high-throughput requests, and preserve data integrity under load. From Spring Boot filter chains and JPA transaction management to async FastAPI microservices, I design for predictable latency and zero memory leaks.'
-    },
-    {
-      icon: Cpu,
-      title: 'Agentic AI & Information Retrieval',
-      description:
-        'I approach AI through an engineering lens rather than treating models like magic. I focus on deterministic guardrails, structured JSON outputs, hybrid BM25 + vector retrieval, and rigorous evaluation pipelines (LangSmith) that turn stochastic LLMs into reliable enterprise tools.'
-    },
-    {
-      icon: Layers,
-      title: 'End-to-End System Thinking',
-      description:
-        'I build whole applications. A backend without an intuitive interface delivers no user value, and an interface without resilient data pipelines fails under production pressure. I enjoy connecting relational databases, APIs, and modern responsive frontends seamlessly.'
-    },
-    {
-      icon: Compass,
-      title: 'Disciplined Problem Solving',
-      description:
-        'Having solved 370+ algorithmic problems across LeetCode (250+ Medium, 45 Hard), I treat algorithm optimization as a daily habit. When faced with an unfamiliar framework or protocol, I trace request flows and inspect source code rather than relying on surface-level tutorials.'
-    }
-  ];
-
   return (
-    <section id="about" className="py-24 relative overflow-hidden border-t border-white/[0.06]">
+    <section id="about" className="py-24 border-b border-[var(--border-color)] bg-[var(--bg-color)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-16">
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-400 uppercase tracking-widest mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            <span>01 // PERSPECTIVE & MINDSET</span>
+        {/* Section Header with Eyebrow and Barcode (Ashmit Signature Style) */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pb-8 border-b border-[var(--border-color)] mb-14">
+          <div>
+            <div className="font-mono text-xs uppercase tracking-widest text-[var(--text-gray-color)] mb-2">
+              [ 01 // PROFILE & DOSSIER ]
+            </div>
+            <h2 className="font-display font-black text-4xl sm:text-6xl text-[var(--text-color)] tracking-tight uppercase">
+              ARCHITECTING AUTONOMOUS AGENTS & HIGH-THROUGHPUT RUNTIMES
+            </h2>
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-5xl text-gradient-silver tracking-tight">
-            Engineering with rigor, curiosity, and intent.
-          </h2>
+
+          {/* SVG Barcode Accent (Ashmit Style) */}
+          <div className="shrink-0 flex flex-col items-end">
+            <svg width="140" height="38" viewBox="0 0 140 38" fill="currentColor" className="text-[var(--text-color)] opacity-80">
+              <rect x="0" y="0" width="3" height="38" />
+              <rect x="5" y="0" width="1" height="38" />
+              <rect x="8" y="0" width="4" height="38" />
+              <rect x="15" y="0" width="2" height="38" />
+              <rect x="19" y="0" width="1" height="38" />
+              <rect x="22" y="0" width="5" height="38" />
+              <rect x="30" y="0" width="2" height="38" />
+              <rect x="34" y="0" width="3" height="38" />
+              <rect x="40" y="0" width="1" height="38" />
+              <rect x="43" y="0" width="4" height="38" />
+              <rect x="50" y="0" width="2" height="38" />
+              <rect x="54" y="0" width="6" height="38" />
+              <rect x="63" y="0" width="1" height="38" />
+              <rect x="67" y="0" width="3" height="38" />
+              <rect x="73" y="0" width="2" height="38" />
+              <rect x="78" y="0" width="5" height="38" />
+              <rect x="86" y="0" width="1" height="38" />
+              <rect x="90" y="0" width="3" height="38" />
+              <rect x="95" y="0" width="2" height="38" />
+              <rect x="100" y="0" width="4" height="38" />
+              <rect x="107" y="0" width="1" height="38" />
+              <rect x="111" y="0" width="5" height="38" />
+              <rect x="119" y="0" width="2" height="38" />
+              <rect x="124" y="0" width="3" height="38" />
+              <rect x="130" y="0" width="2" height="38" />
+              <rect x="135" y="0" width="4" height="38" />
+            </svg>
+            <span className="font-mono text-[9px] uppercase tracking-widest text-[var(--text-gray-color)] mt-1">
+              KJ-2026-ENG-SYS
+            </span>
+          </div>
         </div>
 
-        {/* Narrative Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        {/* Two-Column Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Main Story Paragraphs */}
-          <div className="lg:col-span-7 space-y-6 text-text-secondary text-base sm:text-lg leading-relaxed">
-            {profile.bioParagraphs.map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
+          {/* Left Column: Deep Engineering Story */}
+          <div className="lg:col-span-7 space-y-6 font-mono text-sm leading-relaxed text-[var(--text-color)]">
+            <p className="text-base sm:text-lg font-medium leading-relaxed">
+              I am an AI Software Engineer who believes the real value of artificial intelligence lies in production-grade integration, deterministic safeguards, and predictable low-latency execution.
+            </p>
 
-            <div className="pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6">
-              <div>
-                <div className="font-display font-extrabold text-2xl sm:text-3xl text-gradient-cyan">
-                  370+
+            <p className="text-[var(--text-gray-color)]">
+              During my internship at <strong className="text-[var(--text-color)]">Visa's Special Projects Group (TLT)</strong>, I built LangChain ReAct agents with tool calling and Pydantic structured validation to automate enterprise procurement data-ingestion, reducing manual effort by ~75%. I optimized vLLM model serving to reduce inference latency by 40% and deployed containerized FastAPI microservices on AWS EC2.
+            </p>
+
+            <p className="text-[var(--text-gray-color)]">
+              At <strong className="text-[var(--text-color)]">Atlys</strong>, I built Gym-World: a simulation environment for testing conversational voice AI agents via automated agent-to-agent phone calls. I developed a Python bidirectional audio bridge to coordinate simulated calls, integrated ElevenLabs with Twilio Media Streams, verified HMAC signatures, and broadcast live transcripts using Server-Sent Events (SSE).
+            </p>
+
+            <p className="text-[var(--text-gray-color)]">
+              At <strong className="text-[var(--text-color)]">NPST</strong>, I engineered a RAG customer support chatbot handling 5,000+ daily interactions across Java Spring Boot microservices, lifting automated query resolution by 65% while enforcing anti-hallucination guardrails.
+            </p>
+
+            {/* Core Tenets Strip */}
+            <div className="pt-6 border-t border-[var(--border-color)] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="border border-[var(--border-color)] p-4 rounded bg-[var(--card-bg)]">
+                <div className="font-bold text-[var(--text-color)] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>DETERMINISTIC GUARDS</span>
                 </div>
-                <div className="font-mono text-xs text-text-muted mt-1">LeetCode Solved</div>
+                <p className="text-[var(--text-gray-color)]">
+                  Financial calculations, routing boundaries, and state mutations remain strictly deterministic in Python/Java.
+                </p>
               </div>
-              <div>
-                <div className="font-display font-extrabold text-2xl sm:text-3xl text-gradient-silver">
-                  2
+
+              <div className="border border-[var(--border-color)] p-4 rounded bg-[var(--card-bg)]">
+                <div className="font-bold text-[var(--text-color)] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>SUB-SECOND LATENCY</span>
                 </div>
-                <div className="font-mono text-xs text-text-muted mt-1">Enterprise Internships</div>
-              </div>
-              <div>
-                <div className="font-display font-extrabold text-2xl sm:text-3xl text-blue-400">
-                  21
-                </div>
-                <div className="font-mono text-xs text-text-muted mt-1">Audited Projects</div>
-              </div>
-              <div>
-                <div className="font-display font-extrabold text-2xl sm:text-3xl text-purple-400">
-                  7.78
-                </div>
-                <div className="font-mono text-xs text-text-muted mt-1">B.Tech CGPA</div>
+                <p className="text-[var(--text-gray-color)]">
+                  Sub-200ms audio packet routing, vLLM PagedAttention caching, and sub-10ms sparse/dense hybrid search.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right: Academic Foundation Card */}
-          <div className="lg:col-span-5">
-            <div className="p-6 sm:p-8 rounded-3xl bg-surface-card border border-white/10 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-2xl bg-blue-600/15 border border-blue-500/20 text-blue-400">
-                  <GraduationCap className="w-6 h-6" />
+          {/* Right Column: Technical Specs Dossier Table (Ashmit Specs Style) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="border border-[var(--border-color)] bg-[var(--card-bg)] p-6 rounded-lg font-mono text-xs shadow-sm">
+              <div className="flex items-center justify-between pb-4 border-b border-[var(--border-color)] mb-4">
+                <span className="font-bold uppercase tracking-wider text-[var(--text-color)]">
+                  SPECIFICATION DOSSIER
+                </span>
+                <span className="text-emerald-500 uppercase tracking-widest text-[10px] font-semibold">
+                  VERIFIED // 2026
+                </span>
+              </div>
+
+              <div className="divide-y divide-[var(--border-color)]">
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">NAME</span>
+                  <span className="font-semibold text-[var(--text-color)]">{profile.name}</span>
                 </div>
-                <div>
-                  <h3 className="font-display font-bold text-lg text-text-primary">
-                    Academic Education
-                  </h3>
-                  <p className="font-mono text-xs text-text-muted">
-                    {education.timeline}
-                  </p>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">EDUCATION</span>
+                  <span className="font-semibold text-[var(--text-color)]">B.Tech CSE (MAIT Delhi)</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">TIMELINE</span>
+                  <span className="text-[var(--text-color)]">{education.timeline}</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">ACADEMIC CGPA</span>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">{education.gpa}</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">LEETCODE PROBLEMS</span>
+                  <span className="font-semibold text-[var(--text-color)]">500+ Solved (DSA Master)</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">ENTERPRISE INTERNSHIPS</span>
+                  <span className="font-semibold text-[var(--text-color)]">Visa · Atlys · NPST</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">PRIMARY LOCATIONS</span>
+                  <span className="text-[var(--text-color)]">New Delhi / Bengaluru / Remote</span>
+                </div>
+
+                <div className="py-2.5 flex items-center justify-between">
+                  <span className="text-[var(--text-gray-color)]">CLEARANCES & CERTS</span>
+                  <span className="text-[var(--text-color)]">Visa SEZ · Atlys Voice AI · NPST</span>
                 </div>
               </div>
 
-              <div className="space-y-4 text-sm">
-                <div>
-                  <div className="text-text-primary font-medium">{education.institution}</div>
-                  <div className="text-text-secondary text-xs">{education.degree}</div>
-                  <div className="mt-1 font-mono text-xs text-cyan-400 font-semibold">{education.gpa}</div>
+              {/* Coursework Tags */}
+              <div className="pt-4 mt-2 border-t border-[var(--border-color)]">
+                <div className="text-[var(--text-gray-color)] uppercase tracking-wider text-[10px] mb-2 font-semibold">
+                  CORE COMPUTER SCIENCE COURSEWORK
                 </div>
-
-                <div className="pt-3 border-t border-white/10">
-                  <div className="font-mono text-xs text-text-muted uppercase tracking-wider mb-2">
-                    Core Coursework
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {education.relevantCoursework.map((course, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-1 rounded-md bg-surface-elevated border border-white/5 text-xs text-text-secondary font-mono"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-white/10 space-y-2">
-                  <div className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
-                    Academic Highlights
-                  </div>
-                  {education.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-text-secondary leading-snug">
-                      <CheckCircle className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
-                      <span>{h}</span>
-                    </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {education.relevantCoursework.map((course, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-0.5 rounded border border-[var(--border-color)] bg-[var(--pill-bg)] text-[10px] text-[var(--text-color)]"
+                    >
+                      {course}
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
+
+            {/* Quote Block */}
+            <div className="p-4 border-l-2 border-[var(--text-color)] bg-[var(--pill-bg)] font-mono text-xs italic text-[var(--text-color)]">
+              "Great engineering is understanding trade-offs: when to use an in-memory sparse index over a heavy vector DB, how to prevent active-speaker deadlocks in audio bridges, and how to keep models accountable."
+            </div>
           </div>
 
-        </div>
-
-        {/* Engineering Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pillars.map((pillar, idx) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-surface-elevated/60 border border-white/[0.08] hover:border-blue-500/30 hover:bg-surface-elevated transition-all group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5 group-hover:scale-110 transition-transform">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <h3 className="font-display font-bold text-base text-text-primary mb-2">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs text-text-secondary leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            );
-          })}
         </div>
 
       </div>

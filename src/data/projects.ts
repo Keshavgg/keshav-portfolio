@@ -2,6 +2,85 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 'gym-world-voice-ai',
+    slug: 'gym-world-voice-ai',
+    title: 'Gym-World — Voice AI Testing & Simulation Environment',
+    subtitle: 'Full-Duplex Python Audio Bridge, Twilio Streams & ElevenLabs Conversational AI',
+    category: 'AI / ML Systems',
+    tier: 'Production / Deployed',
+    featured: true,
+    featuredRank: 4,
+    highlightMetric: '<200ms Full-Duplex Audio Bridge',
+    summary: 'An automated simulation environment built at Atlys for testing voice AI conversational agents through agent-to-agent phone calls, full-duplex Python audio bridging, and real-time Server-Sent Events (SSE) transcript telemetry.',
+    problem: 'Testing voice AI conversational agents manually via phone calls is slow, expensive, and non-deterministic. Latency spikes, audio packet loss, active speaker interruptions, and webhook signature spoofing can cause catastrophic failure in production telephony pipelines.',
+    solution: 'Engineered Gym-World: a distributed simulation harness deployed on AWS EC2. Implemented a Python bidirectional audio bridge routing raw audio between Twilio Media Streams and ElevenLabs Conversational AI, secured with HMAC signature verification, active speaker arbitration, WebSockets streaming, and PostgreSQL call-state persistence.',
+    architecture: {
+      overview: 'Distributed telephony simulation cluster. Twilio Media Streams stream raw audio via WebSockets into a low-latency Python audio router, which interfaces in full-duplex with ElevenLabs Conversational AI endpoints and publishes live transcripts via Server-Sent Events.',
+      diagramType: 'microservices',
+      components: [
+        { name: 'Python Audio Bridge', role: 'Coordinates simulated calls, active speaker arbitration, buffer management', technologies: 'Python 3.12, asyncio, WebSockets' },
+        { name: 'Telephony & Voice Core', role: 'Twilio Media Streams bi-directional audio; ElevenLabs Conversational AI', technologies: 'Twilio API, ElevenLabs SDK, HMAC-SHA256' },
+        { name: 'Telemetry & Streaming', role: 'Real-time transcript broadcast and call metrics', technologies: 'Server-Sent Events (SSE), PostgreSQL' },
+        { name: 'Cloud Hosting', role: 'Containerized runner on AWS EC2 with systemd process supervision', technologies: 'AWS EC2, Docker, Linux' }
+      ],
+      dataFlow: [
+        '1. Automated runner triggers synthetic agent-to-agent call via Twilio Media Streams.',
+        '2. Inbound webhook validated using HMAC signature verification to defeat spoofed carriers.',
+        '3. Python bidirectional audio bridge streams raw u-law/PCM audio frames between Twilio and ElevenLabs.',
+        '4. Active speaker management arbitrates interrupts and prevents frame buffer bloat.',
+        '5. Real-time transcripts emitted over Server-Sent Events; final call latency logged to PostgreSQL.'
+      ]
+    },
+    techBreakdown: [
+      {
+        category: 'Voice AI & Streaming',
+        items: [
+          { name: 'ElevenLabs Conversational AI', purpose: 'Ultra-realistic neural voice synthesis with sub-250ms time-to-first-byte', advantage: 'Human-grade conversational prosody and dynamic interruption handling' },
+          { name: 'Twilio Media Streams', purpose: 'Full-duplex telephony audio protocol', advantage: 'Carrier-grade PSTN call reliability' }
+        ]
+      },
+      {
+        category: 'Backend & Persistence',
+        items: [
+          { name: 'FastAPI & WebSockets', purpose: 'High-frequency audio packet routing', advantage: 'Async event loop with zero-copy stream chunking' },
+          { name: 'PostgreSQL', purpose: 'Call session state, turn logs, latency benchmarks', advantage: 'ACID transaction guarantees for concurrent call sessions' }
+        ]
+      }
+    ],
+    challenges: [
+      {
+        challenge: 'Buffer Overflows During Agent-to-Agent Cross-Talk',
+        context: 'When two synthetic conversational agents speak simultaneously, unmanaged audio buffers rapidly accumulate, introducing multi-second lag.',
+        resolution: 'Implemented active speaker arbitration with dynamic jitter buffer flushing and voice activity detection (VAD) gating.'
+      }
+    ],
+    decisions: [
+      {
+        choice: 'Server-Sent Events over WebSockets for Transcript UI',
+        rationale: 'SSE provides lightweight unidirectional streaming with automatic HTTP reconnection for monitoring dashboards without WebSocket protocol overhead.',
+        tradeOff: 'Unidirectional only, but perfectly suited for observation dashboards.'
+      }
+    ],
+    learnings: [
+      'Telephony audio codecs (G.711 u-law 8kHz) require strict timing synchronization when converted for modern neural TTS engines.',
+      'HMAC signature validation is mandatory for production telephony webhooks to mitigate toll fraud.'
+    ],
+    improvements: {
+      implemented: [
+        'Full-duplex audio bridge running sub-200ms latency',
+        'HMAC webhook verification and PostgreSQL call tracking'
+      ],
+      proposed: [
+        'Automated voice quality metric scoring (POLQA/PESQ) across cellular network conditions'
+      ]
+    },
+    links: {
+      github: 'https://github.com/Keshavgg',
+      statusNote: 'Verified Internship at Atlys (Delhi Unit)'
+    },
+    tags: ['Python', 'ElevenLabs', 'Twilio Streams', 'WebSockets', 'SSE', 'PostgreSQL', 'AWS EC2']
+  },
+  {
     id: 'billguard-ai',
     slug: 'billguard-ai',
     title: 'BillGuard AI — Logistics Fraud & Invoice Audit Engine',
@@ -9,7 +88,7 @@ export const projects: Project[] = [
     category: 'AI / ML Systems',
     tier: 'Working Prototype',
     featured: true,
-    featuredRank: 2,
+    featuredRank: 6,
     highlightMetric: '5–15% Freight Overcharge Detection',
     summary: 'A document intelligence platform that reads multi-page transportation contracts and freight invoice PDFs locally, executes deterministic Python audit rules for rate caps, lane deviations, and kilometer tolerances, and provides constrained second-pass LLM advisory checks.',
     problem: 'Enterprise shippers and 3PL logistics networks manage thousands of multi-page freight bills monthly from distributed carrier fleets. Up to 15% of annual freight spend is lost to unauthorized fuel surcharges, mismatched origin-destination lanes, inflated billable distances, and duplicate trip charges. Manual auditing against complex contract rate sheets is painstakingly slow, while uploading sensitive corporate shipping data to generic cloud LLMs violates enterprise privacy boundaries.',
@@ -676,11 +755,12 @@ export const projects: Project[] = [
   {
     id: 'plan4u',
     slug: 'plan4u',
-    title: 'Plan4U — Autonomous AI Trip Planner & Geolocation Discovery',
-    subtitle: 'Unified GPS Nearby Discovery & Pre-Trip/In-Trip Multi-Agent Backend',
-    category: 'Backend & Cloud',
+    title: 'Plan4U — AI-Powered Travel Planner & Geolocation Copilot',
+    subtitle: 'Pre-Trip Itinerary Generation, Haversine Radius API & Min-Cashflow Settlement',
+    category: 'AI / ML Systems',
     tier: 'Working Prototype',
-    featured: false,
+    featured: true,
+    featuredRank: 1,
     highlightMetric: 'Single-Call GPS Nearby API · Splitwise Engine',
     summary: 'A travel planning backend providing dual-panel AI trip assistance (Pre-Trip planning & Live In-Trip companion) alongside a single-call GPS "Explore Nearby" microservice aggregating hotels, dining, monuments, and live events.',
     problem: 'Travelers must switch between mapping apps, review portals, and booking sites to coordinate daily sightseeing, find nearby open attractions, and divide shared costs with travel companions.',

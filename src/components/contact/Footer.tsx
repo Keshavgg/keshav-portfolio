@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Code2, FileText, Heart } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Code2, FileText } from 'lucide-react';
 import { profile } from '../../data/profile';
 import { getAssetUrl } from '../../utils/assets';
 
@@ -8,97 +8,94 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const resumeUrl = getAssetUrl('/resume/Keshav_Jindal_Resume.pdf');
+  const resumeUrl = getAssetUrl('/Keshav_Jindal_Resume.pdf');
   const inventoryUrl = getAssetUrl('/PROJECT_INVENTORY.md');
 
   return (
-    <footer className="border-t border-white/[0.08] bg-[#050608] py-14 text-text-secondary text-xs sm:text-sm font-mono">
+    <footer className="border-t border-[var(--border-color)] bg-[var(--bg-color)] py-14 font-mono text-xs text-[var(--text-gray-color)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-10 border-b border-white/[0.06]">
-          {/* Logo & Tagline */}
+        
+        {/* Top Footer Row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-[var(--border-color)]">
+          {/* Logo & Headline */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-surface-elevated border border-white/10 flex items-center justify-center">
-              <span className="font-display font-extrabold text-lg text-gradient-silver tracking-tight">
-                {profile.monogram}
-              </span>
+            <div className="w-9 h-9 rounded bg-[var(--text-color)] text-[var(--bg-color)] flex items-center justify-center font-display font-extrabold text-base">
+              {profile.monogram}
             </div>
             <div>
-              <div className="font-display font-bold text-text-primary text-sm">
+              <div className="font-display font-bold text-base text-[var(--text-color)] uppercase tracking-tight">
                 {profile.name}
               </div>
-              <div className="text-[11px] text-text-muted">
-                Software Engineer • Backend, Cloud & AI
+              <div className="text-[11px] text-[var(--text-gray-color)] uppercase tracking-wider">
+                AI SOFTWARE ENGINEER // SYSTEMS ARCHITECT
               </div>
             </div>
           </div>
 
-          {/* Social Profiles */}
-          <div className="flex items-center gap-4">
+          {/* Social Icons & External Links */}
+          <div className="flex flex-wrap items-center gap-4 text-[var(--text-color)] uppercase tracking-wider">
             <a
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
-              title="GitHub"
-              aria-label="GitHub Profile"
+              className="link-line flex items-center gap-1.5 hover:opacity-75"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-3.5 h-3.5" />
+              <span>GITHUB</span>
             </a>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
-              title="LinkedIn"
-              aria-label="LinkedIn Profile"
+              className="link-line flex items-center gap-1.5 hover:opacity-75"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-3.5 h-3.5" />
+              <span>LINKEDIN</span>
             </a>
             <a
               href={profile.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
-              title="LeetCode (370+ Solved)"
-              aria-label="LeetCode Profile"
+              className="link-line flex items-center gap-1.5 hover:opacity-75"
             >
-              <Code2 className="w-4 h-4" />
+              <Code2 className="w-3.5 h-3.5" />
+              <span>LEETCODE</span>
             </a>
             <a
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-elevated hover:bg-white/10 text-text-muted hover:text-text-primary transition-colors"
-              title="Resume PDF"
-              aria-label="Resume PDF"
+              className="link-line flex items-center gap-1.5 hover:opacity-75"
             >
-              <FileText className="w-4 h-4" />
+              <FileText className="w-3.5 h-3.5" />
+              <span>RESUME</span>
             </a>
           </div>
 
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-elevated hover:bg-white/10 text-text-secondary hover:text-text-primary border border-white/5 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border-color)] text-[var(--text-color)] hover:bg-[var(--pill-bg)] transition-colors uppercase tracking-wider shrink-0"
           >
-            <span>Back to top</span>
-            <ArrowUp className="w-4 h-4" />
+            <span>BACK TO TOP</span>
+            <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Colophon & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-text-muted">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <div>
-            © {new Date().getFullYear()} Keshav Jindal. All rights reserved. Truthful engineering representation.
+            © {new Date().getFullYear()} KESHAV JINDAL. ALL RIGHTS RESERVED. TRUTHFUL ENGINEERING REPRESENTATION.
           </div>
           <div className="flex items-center gap-3">
-            <span>Built with React, TypeScript, Three.js & Tailwind</span>
+            <span>INSPIRED BY EDITORIAL MINIMALISM</span>
             <span>•</span>
-            <a href={inventoryUrl} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
-              Project Inventory (21)
+            <a href={inventoryUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-color)] underline">
+              VERIFIED PROJECT INVENTORY (21)
             </a>
           </div>
         </div>
+
       </div>
     </footer>
   );

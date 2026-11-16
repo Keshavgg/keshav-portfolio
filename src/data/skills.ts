@@ -2,81 +2,62 @@ import { SkillCategory } from '../types';
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'Programming Languages',
+    title: 'Languages & Core Systems',
     iconName: 'Code2',
-    description: 'Languages used for building scalable backends, systems, and algorithms',
+    description: 'High-performance programming languages for scalable distributed backends and algorithmic computing',
     skills: [
-      { name: 'Java', context: 'Primary enterprise language; Spring Boot, Hibernate, Multithreading, OOP', highlight: true },
-      { name: 'Python', context: 'AI/ML systems, FastAPI, LangChain, BM25/TF-IDF, statistical modeling', highlight: true },
-      { name: 'C / C++', context: 'Algorithmic problem solving; 370+ LeetCode problems (250+ Medium, 45 Hard); memory management', highlight: true },
-      { name: 'TypeScript', context: 'Full-stack type safety; Node.js, Express, Next.js 14, React', highlight: true },
-      { name: 'JavaScript (ES6+)', context: 'Asynchronous event loops, DOM, modern frontends' },
-      { name: 'SQL', context: 'Relational data modeling, indexing, ACID transactions, complex joins' }
+      { name: 'Python', context: 'FastAPI, LangGraph, LangChain, vLLM, SDXL-Turbo, Kokoro, RapidOCR, NumPy', highlight: true },
+      { name: 'Java', context: 'Java 17, Spring Boot, Spring MVC, Spring Data JPA, Hibernate, Enterprise APIs', highlight: true },
+      { name: 'C / C++', context: '500+ LeetCode Solved; memory management, Graph Theory, Dynamic Programming, Trees', highlight: true },
+      { name: 'TypeScript / JavaScript', context: 'Next.js 14, React 18, Node.js, Express, WebSockets, type-safe full-stack', highlight: true },
+      { name: 'SQL', context: 'PostgreSQL, MySQL, SQLite, query indexing, transactions, ACID integrity' }
+    ]
+  },
+  {
+    title: 'AI, LLMs & Voice AI',
+    iconName: 'Cpu',
+    description: 'Agentic workflows, real-time voice bridges, model serving, and retrieval systems',
+    skills: [
+      { name: 'LangGraph & LangChain', context: 'Multi-agent research swarms, ReAct agents with tool calling and Pydantic structured output', highlight: true },
+      { name: 'vLLM Model Serving', context: 'PagedAttention optimization, slashing model inference latency by 40% at Visa', highlight: true },
+      { name: 'ElevenLabs & Twilio Streams', context: 'Full-duplex bidirectional voice AI bridges, Gym-World call simulator (<200ms latency)', highlight: true },
+      { name: 'Retrieval-Augmented Generation (RAG)', context: 'Banking customer support RAG at NPST (65% resolution), hybrid BM25 + dense retrieval', highlight: true },
+      { name: 'Multimodal AI & Video Engine', context: 'SDXL-Turbo, Kokoro neural TTS, and FFmpeg automated short-form video generation', highlight: true },
+      { name: 'Evaluations & Guardrails', context: 'LangSmith automated regression scoring, prompt validation, anti-hallucination checks' }
     ]
   },
   {
     title: 'Backend & Cloud Microservices',
     iconName: 'Server',
-    description: 'Frameworks and runtimes powering high-availability services',
+    description: 'Frameworks and runtimes powering high-concurrency microservices and real-time streaming',
     skills: [
-      { name: 'Spring Boot', context: 'Enterprise microservices, Spring MVC, Spring Data JPA, dependency injection', highlight: true },
-      { name: 'FastAPI', context: 'High-throughput async Python APIs, Pydantic validation, OpenAPI specs', highlight: true },
-      { name: 'Spring Data JPA / Hibernate', context: 'ORM mappings, lazy loading, JPQL, transaction management' },
-      { name: 'Node.js & Express', context: 'RESTful services, JWT auth, WebSockets, rate limiting' },
-      { name: 'Docker & Containers', context: 'Multi-stage Dockerfiles, image minimization, local container stacks' },
-      { name: 'Kubernetes (K8s)', context: 'Staging manifests, service ingress, Helm basics' },
-      { name: 'AWS (EC2, S3)', context: 'Cloud deployments, IAM policies, static artifact storage' }
+      { name: 'FastAPI (Python)', context: 'Async event loop, Pydantic v2 schemas, REST microservices on AWS EC2', highlight: true },
+      { name: 'Spring Boot (Java)', context: 'Enterprise microservices handling 5,000+ daily queries at NPST', highlight: true },
+      { name: 'WebSockets & Server-Sent Events', context: 'Real-time bidirectional audio streaming and live transcript telemetry', highlight: true },
+      { name: 'Docker & AWS (EC2, S3)', context: 'Containerized microservices, cloud deployments, IAM policies, model serving', highlight: true },
+      { name: 'GitHub Actions CI/CD', context: 'Automated test suites, linting, Docker build pipelines, and production deploy' }
     ]
   },
   {
-    title: 'AI, LLMs & Retrieval (RAG)',
-    iconName: 'Cpu',
-    description: 'Generative AI architectures, vector search, and agentic workflows',
-    skills: [
-      { name: 'LangChain & Agentic Workflows', context: 'Multi-agent orchestration, state channels, tool calling', highlight: true },
-      { name: 'Retrieval-Augmented Generation (RAG)', context: 'Hybrid BM25 + dense vector retrieval, semantic chunking', highlight: true },
-      { name: 'Information Retrieval (BM25, TF-IDF)', context: 'Lexical scoring, term statistics, tokenization over MySQL', highlight: true },
-      { name: 'Vector DBs (ChromaDB, Pinecone)', context: 'Embedding indexing, cosine similarity, metadata filtering' },
-      { name: 'LangSmith', context: 'Automated evaluation, hallucination tracking, prompt benchmarking', highlight: true },
-      { name: 'LLM Inference & Guardrails', context: 'Structured JSON generation, Pydantic schemas, prompt guardrails' },
-      { name: 'Time-Series & Classical ML', context: 'Holt-Winters forecasting, scikit-learn, statsmodels, NLP lexicons' }
-    ]
-  },
-  {
-    title: 'Databases & Storage',
+    title: 'Databases & In-Memory Stores',
     iconName: 'Database',
     description: 'Data tier architectures for transactional and analytical workloads',
     skills: [
-      { name: 'MySQL', context: 'Enterprise relational store at Visa and NPST; indexing, query optimization', highlight: true },
-      { name: 'PostgreSQL', context: 'Relational schemas, connection pooling (psycopg2), ACID compliance' },
-      { name: 'SQLite (Native & SQLAlchemy)', context: 'Embedded zero-latency datastore for prototypes and local services' },
-      { name: 'Redis', context: 'In-memory caching, TTL policies, session storage' },
-      { name: 'MongoDB', context: 'Document modeling, aggregation pipelines, schema flexibility' }
+      { name: 'PostgreSQL', context: 'Call-state management for Gym-World, relational schemas, ACID integrity', highlight: true },
+      { name: 'MySQL', context: 'Relational data tier for enterprise sourcing and banking microservices at Visa & NPST', highlight: true },
+      { name: 'SQLite', context: 'Zero-latency embedded relational engine for Plan4U and BillGuard AI', highlight: true },
+      { name: 'Redis', context: 'In-memory caching, TTL policies, session storage and real-time coordination' }
     ]
   },
   {
-    title: 'Frontend & UI Engineering',
-    iconName: 'Layout',
-    description: 'Crafting responsive, performant, and accessible interfaces',
-    skills: [
-      { name: 'React 18', context: 'Hooks, context, custom state hooks, component architecture', highlight: true },
-      { name: 'Next.js 14', context: 'App Router, Server Actions, SSR, route handlers' },
-      { name: 'Tailwind CSS', context: 'Utility-first styling, responsive layouts, design systems' },
-      { name: 'Three.js & WebGL', context: 'Interactive 3D scenes, shaders, lighting, canvas performance' },
-      { name: 'Framer Motion', context: 'Spring physics, stagger sequences, timeline animations' }
-    ]
-  },
-  {
-    title: 'Core Fundamentals & Tooling',
+    title: 'Algorithmic Rigor & System Design',
     iconName: 'Wrench',
-    description: 'Engineering practices ensuring code quality and reliability',
+    description: 'Foundations ensuring code correctness, low latency, and maintainability',
     skills: [
-      { name: 'Data Structures & Algorithms', context: '370+ LeetCode problems solved (250+ Medium, 45 Hard); graph, DP, tree mastery', highlight: true },
-      { name: 'System Design & Distributed Patterns', context: 'Event-driven architectures, caching tiers, circuit breakers' },
-      { name: 'Git & GitHub Actions', context: 'Feature branching, PR review workflows, automated CI/CD pipelines' },
-      { name: 'Maven & Gradle', context: 'Java dependency lifecycle management and build automation' },
-      { name: 'Postman & cURL', context: 'API contract testing, environment variables, automation collections' },
-      { name: 'Linux / Unix Shell Scripting', context: 'Zsh, Bash automation, process management, POSIX environments' }
+      { name: '500+ LeetCode Solved', context: 'Advanced algorithms: Graph theory (Dijkstra, BFS/DFS), Dynamic Programming, Trees, Two Pointers', highlight: true },
+      { name: 'Haversine Spatial Algorithms', context: 'Geographic radius exploration filtering hotels, restaurants, and attractions', highlight: true },
+      { name: 'Min-Cashflow Settlement', context: 'Greedy debt simplification algorithm minimizing inter-member transactions in Plan4U', highlight: true },
+      { name: 'System Design & Microservices', context: 'Distributed consensus, active speaker arbitration, circuit breakers, idempotency' }
     ]
   }
 ];

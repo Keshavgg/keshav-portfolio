@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { CinematicIntro } from './components/cinematic/CinematicIntro';
 import { Navbar } from './components/navigation/Navbar';
 import { Hero } from './components/hero/Hero';
+import { MarqueeTicker } from './components/hero/MarqueeTicker';
+import { ImpactMetrics } from './components/hero/ImpactMetrics';
 import { About } from './components/about/About';
-import { ExperienceTimeline } from './components/experience/ExperienceTimeline';
+import { ServicesSection } from './components/services/ServicesSection';
 import { ProjectGrid } from './components/projects/ProjectGrid';
-import { CaseStudyModal } from './components/case-studies/CaseStudyModal';
+import { ExperienceTimeline } from './components/experience/ExperienceTimeline';
 import { EngineeringShowcase } from './components/engineering/EngineeringShowcase';
 import { SkillsSection } from './components/skills/SkillsSection';
-import { RecruiterViewModal } from './components/recruiter/RecruiterViewModal';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/contact/Footer';
+import { CaseStudyModal } from './components/case-studies/CaseStudyModal';
+import { RecruiterViewModal } from './components/recruiter/RecruiterViewModal';
 import { projects } from './data/projects';
 import { Project } from './types';
 
 export const App: React.FC = () => {
-  const [introFinished, setIntroFinished] = useState<boolean>(false);
   const [recruiterModalOpen, setRecruiterModalOpen] = useState<boolean>(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState<Project | null>(null);
 
-  // Check URL hash/query on initial mount for deep links (e.g. #recruiter, #project-slug)
+  // Check URL hash for deep links
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase();
@@ -69,36 +70,34 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080B] text-[#F5F5F7] font-sans selection:bg-blue-600/30 selection:text-blue-200">
-      {/* Cinematic Intro Splash */}
-      {!introFinished && (
-        <CinematicIntro onComplete={() => setIntroFinished(true)} />
-      )}
-
-      {/* Main Portfolio Navigation */}
+    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
+      {/* Top Navbar */}
       <Navbar
         onOpenRecruiterView={openRecruiterView}
         onOpenTerminal={scrollToTerminal}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Flow Sections */}
       <main className="relative">
         <Hero onOpenRecruiterView={openRecruiterView} />
+        <MarqueeTicker />
+        <ImpactMetrics />
         <About />
-        <ExperienceTimeline />
+        <ServicesSection />
         <ProjectGrid
           projects={projects}
           onOpenCaseStudy={openProjectCaseStudy}
         />
+        <ExperienceTimeline />
         <EngineeringShowcase />
         <SkillsSection />
         <ContactSection />
       </main>
 
-      {/* Footer */}
+      {/* Editorial Footer */}
       <Footer />
 
-      {/* Deep Technical Case Study Modal (A-J Sections) */}
+      {/* Deep Technical Case Study Modal */}
       <CaseStudyModal
         project={activeCaseStudy}
         onClose={closeCaseStudy}
@@ -115,4 +114,5 @@ export const App: React.FC = () => {
     </div>
   );
 };
+
 export default App;

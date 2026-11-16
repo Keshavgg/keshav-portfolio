@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keshav Jindal — Software Engineer | Systems, AI & Cloud</title>
+    <meta name="theme-color" content="#f7f7f7" />
+    <title>Keshav Jindal · AI Software Engineer & Systems Architect</title>
     
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Portfolio of Keshav Jindal — Software Engineer specializing in backend architecture, high-availability microservices, information retrieval pipelines, and AI systems. Experience at Visa and NPST." />
-    <meta name="keywords" content="Keshav Jindal, Software Engineer, Backend Engineer, AI Engineer, Visa, NPST, Spring Boot, FastAPI, MySQL, LangChain, LangSmith, BM25, Distributed Systems, Delhi, Portfolio" />
+    <meta name="description" content="AI Software Engineer & B.Tech CSE (MAIT) specializing in multi-agent workflows, real-time voice bridges, vLLM optimization, and enterprise RAG systems. Experience at Visa, Atlys, and NPST." />
+    <meta name="keywords" content="Keshav Jindal, AI Engineer, Software Engineer, Atlys, Visa, NPST, Voice AI, ElevenLabs, LangGraph, vLLM, FastAPI, Spring Boot, MAIT, Delhi, LeetCode 500" />
     <meta name="author" content="Keshav Jindal" />
     
     <!-- Canonical URL -->
@@ -16,23 +17,37 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://keshavgg.github.io/keshav-portfolio/" />
-    <meta property="og:title" content="Keshav Jindal — Software Engineer | Systems & AI" />
-    <meta property="og:description" content="Explore production engineering case studies, interactive Three.js 3D computational systems, and verified software architecture." />
+    <meta property="og:title" content="Keshav Jindal · AI Software Engineer & Systems Architect" />
+    <meta property="og:description" content="AI Software Engineer & B.Tech CSE (MAIT) specializing in multi-agent workflows, real-time voice bridges, vLLM optimization, and enterprise RAG systems." />
     <meta property="og:image" content="https://keshavgg.github.io/keshav-portfolio/live-keshav-portfolio.png" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Keshav Jindal — Software Engineer" />
-    <meta property="twitter:description" content="Computer Engineering student at MAIT. Backend, Cloud-Native & AI Systems. Ex-Visa TLT Special Projects Intern, Ex-NPST AI Intern." />
+    <meta property="twitter:title" content="Keshav Jindal · AI Software Engineer" />
+    <meta property="twitter:description" content="AI Software Engineer & Systems Architect. Ex-Visa TLT Special Projects Intern, Ex-Atlys Gym-World Voice AI Intern, Ex-NPST AI Intern." />
     <meta property="twitter:image" content="https://keshavgg.github.io/keshav-portfolio/live-keshav-portfolio.png" />
 
     <!-- Favicon: KJ Monogram -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2307080B'/><rect x='2' y='2' width='96' height='96' rx='20' fill='none' stroke='%233B82F6' stroke-width='2' stroke-opacity='0.4'/><text x='50' y='64' font-family='Space Grotesk, sans-serif' font-size='42' font-weight='800' fill='%23F5F5F7' text-anchor='middle'>KJ</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23101010'/><text x='50' y='67' font-family='Sofia Sans Condensed, sans-serif' font-size='52' font-weight='800' fill='%23f7f7f7' text-anchor='middle'>KJ</text></svg>" />
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Sofia Sans Condensed & Spline Sans Mono (Exact Ashmit Typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Spline+Sans+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Theme Initialization Script -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('kj_portfolio_theme');
+          if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && false)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- GitHub Pages SPA routing script -->
     <script type="text/javascript">
@@ -48,7 +63,7 @@
       }(window.location))
     </script>
   </head>
-  <body class="bg-[#07080B] text-[#F5F5F7] font-sans antialiased selection:bg-blue-600/30 selection:text-blue-200 overflow-x-hidden">
+  <body class="bg-[var(--bg-color)] text-[var(--text-color)] font-mono antialiased overflow-x-hidden selection:bg-[#101010] selection:text-white dark:selection:bg-white dark:selection:text-black">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

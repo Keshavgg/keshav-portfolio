@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  Code2, Server, Cpu, Database, Layout, Wrench, Sparkles, CheckCircle2 
-} from 'lucide-react';
+import { Code2, Server, Cpu, Database, Wrench, CheckCircle2 } from 'lucide-react';
 import { skillCategories } from '../../data/skills';
 
 export const SkillsSection: React.FC = () => {
@@ -12,47 +10,52 @@ export const SkillsSection: React.FC = () => {
     Server,
     Cpu,
     Database,
-    Layout,
     Wrench
   };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden border-t border-white/[0.06]">
+    <section id="skills" className="py-24 border-b border-[var(--border-color)] bg-[var(--bg-color)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col items-start mb-16">
-          <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-400 uppercase tracking-widest mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            <span>05 // TECHNICAL PROFICIENCIES</span>
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pb-8 border-b border-[var(--border-color)] mb-12">
+          <div>
+            <div className="font-mono text-xs uppercase tracking-widest text-[var(--text-gray-color)] mb-2">
+              [ 06 // TECHNICAL PROFICIENCIES ]
+            </div>
+            <h2 className="font-display font-black text-4xl sm:text-6xl text-[var(--text-color)] tracking-tight uppercase">
+              VERIFIED STACK & DOMAIN COMPETENCIES
+            </h2>
+            <p className="mt-2 font-mono text-xs sm:text-sm text-[var(--text-gray-color)] max-w-2xl">
+              Categorized technologies substantiated by enterprise production internships, audited repositories, and 500+ LeetCode problems.
+            </p>
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-5xl text-gradient-silver tracking-tight">
-            Verified Stack & Domain Competencies
-          </h2>
-          <p className="mt-3 text-text-secondary text-sm sm:text-base max-w-2xl">
-            Categorized skills substantiated by enterprise production internships, audited repositories, and 500+ LeetCode problems. No arbitrary proficiency percentages.
-          </p>
+          <div className="font-mono text-xs text-[var(--text-gray-color)] uppercase tracking-wider shrink-0">
+            NO ARBITRARY PERCENTAGES // 100% REAL CODE
+          </div>
         </div>
 
         {/* Categories Tab Selector */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
           {skillCategories.map((cat, idx) => {
             const Icon = iconMap[cat.iconName] || Code2;
             const isActive = activeCategoryIdx === idx;
+
             return (
               <button
                 key={idx}
                 onClick={() => setActiveCategoryIdx(idx)}
-                className={`p-3.5 rounded-2xl border text-left transition-all flex flex-col justify-between h-28 group ${
+                className={`p-4 rounded-xl border text-left transition-all flex flex-col justify-between h-24 font-mono uppercase ${
                   isActive
-                    ? 'bg-blue-600/15 border-blue-500/50 shadow-lg ring-1 ring-blue-500/30'
-                    : 'bg-surface-elevated/40 border-white/5 hover:border-white/20 hover:bg-surface-elevated'
+                    ? 'bg-[var(--text-color)] text-[var(--bg-color)] border-[var(--text-color)] font-semibold shadow-sm'
+                    : 'bg-[var(--card-bg)] text-[var(--text-color)] border-[var(--border-color)] hover:border-[var(--text-gray-color)]'
                 }`}
               >
-                <div className={`p-2 rounded-xl w-fit ${isActive ? 'bg-blue-600 text-white' : 'bg-white/5 text-text-muted group-hover:text-text-primary'}`}>
+                <div className="flex items-center justify-between">
                   <Icon className="w-4 h-4" />
+                  <span className="text-[10px] tracking-wider opacity-60">0{idx + 1}</span>
                 </div>
-                <div className={`font-display font-semibold text-xs leading-snug ${isActive ? 'text-blue-300' : 'text-text-secondary group-hover:text-text-primary'}`}>
+                <div className="text-xs tracking-tight line-clamp-1">
                   {cat.title}
                 </div>
               </button>
@@ -61,18 +64,18 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Active Category Display */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-surface-card border border-white/10 shadow-2xl">
-          <div className="mb-6 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div className="p-6 sm:p-8 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] shadow-sm font-mono">
+          <div className="mb-6 pb-4 border-b border-[var(--border-color)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-text-primary">
+              <h3 className="font-display font-black text-2xl text-[var(--text-color)] uppercase tracking-tight">
                 {skillCategories[activeCategoryIdx].title}
               </h3>
-              <p className="text-xs sm:text-sm text-text-secondary mt-1">
+              <p className="text-xs text-[var(--text-gray-color)] mt-0.5">
                 {skillCategories[activeCategoryIdx].description}
               </p>
             </div>
-            <span className="font-mono text-xs text-blue-400 bg-blue-950/40 border border-blue-500/20 px-3 py-1 rounded-full w-fit">
-              {skillCategories[activeCategoryIdx].skills.length} VERIFIED PROFICIENCIES
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 uppercase tracking-widest w-fit">
+              {skillCategories[activeCategoryIdx].skills.length} VERIFIED TECHNOLOGIES
             </span>
           </div>
 
@@ -80,17 +83,17 @@ export const SkillsSection: React.FC = () => {
             {skillCategories[activeCategoryIdx].skills.map((skill, i) => (
               <div
                 key={i}
-                className="p-4 rounded-2xl bg-surface-elevated/70 border border-white/5 hover:border-blue-500/30 transition-all space-y-1.5"
+                className="p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-color)] hover:border-[var(--text-color)] transition-colors space-y-1.5"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono font-bold text-sm text-text-primary">
+                  <span className="font-bold text-xs text-[var(--text-color)] uppercase">
                     {skill.name}
                   </span>
                   {skill.highlight && (
-                    <span className="w-2 h-2 rounded-full bg-cyan-400" title="Core High-Frequency Tech" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" title="Core High-Frequency Stack" />
                   )}
                 </div>
-                <p className="text-xs text-text-secondary leading-relaxed">
+                <p className="text-[11px] text-[var(--text-gray-color)] leading-relaxed">
                   {skill.context}
                 </p>
               </div>

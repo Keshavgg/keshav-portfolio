@@ -8,42 +8,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#07080B',
-        'background-secondary': '#101218',
-        'surface-elevated': '#151821',
-        'surface-card': '#11141C',
-        'border-subtle': 'rgba(255, 255, 255, 0.08)',
-        'border-highlight': 'rgba(255, 255, 255, 0.16)',
-        'text-primary': '#F5F5F7',
-        'text-secondary': '#9298A6',
-        'text-muted': '#62687A',
-        accent: {
-          blue: '#3B82F6',
-          cyan: '#06B6D4',
-          violet: '#8B5CF6',
-          emerald: '#10B981',
-          amber: '#F59E0B',
-          glow: '#60A5FA'
-        }
+        ashmit: {
+          bg: '#f7f7f7',
+          text: '#101010',
+          gray: '#767676',
+          muted: '#9e9e9e',
+          card: '#ffffff',
+          border: '#e2e2e2',
+          pill: '#ececec',
+          darkBg: '#0e0f12',
+          darkText: '#f5f5f7',
+          darkCard: '#15171e',
+          darkBorder: '#232630',
+        },
+        background: 'var(--bg-color)',
+        'text-primary': 'var(--text-color)',
+        'text-secondary': 'var(--text-gray-color)',
+        'border-subtle': 'var(--border-color)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+        display: ['"Sofia Sans Condensed"', 'sans-serif'],
+        mono: ['"Spline Sans Mono"', 'monospace'],
+        sans: ['"Spline Sans Mono"', 'system-ui', 'sans-serif'],
+      },
+      letterSpacing: {
+        tightest: '-0.06em',
+        tighter: '-0.04em',
+        tight: '-0.02em',
+        widest: '0.15em',
       },
       animation: {
-        'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         }
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'grid-pattern': "radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)",
       }
     },
   },
